@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Gema para autenticacion de usuarios
 gem 'devise'
 
+# Gema para enviar invitaciones por correo electrónico y aceptar la invitación configurando la contraseña.
+gem 'devise_invitable', '~> 2.0.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

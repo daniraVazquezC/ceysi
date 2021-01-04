@@ -1,26 +1,53 @@
-<h2>Log in</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 d-none d-md-flex bg-image"></div>
+    <div class="col-md-6">
+      <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-xl-7 mx-auto">
+                <%# Agregar mensajes flash %> 
+                <% if notice %>
+                  <p class="alert alert-success"><%= notice %></p>
+                <% end %>
+                <% if alert %>
+                  <p class="alert alert-danger"><%= alert %></p>
+                <% end %>
+                
+                <%= image_tag("http://ceysi.com.mx/images/logo.jpg", class: "image rounded mx-auto d-block img-fluid") %>
+                <h3 class="brand">Sistema de inventario</h3>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <div class="form-group mb-3">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Correo electronico", class:"form-control rounded-pill border-0 shadow-sm px-4" %>
+                  </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                  <div class="form-group mb-3">
+                    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Contraseña", class:"form-control rounded-pill border-0 shadow-sm px-4 text-primary" %>
+                  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                  <%# Por el momento no se usara el remember me %> 
+                  <%# if devise_mapping.rememberable? %>
+                    <div class="custom-control custom-checkbox mb-3"> 
+                      <%#= f.check_box :remember_me , class: "custom-control-input" %>
+                      <%#= f.label :remember_me , class: "custom-control-label"%>
+                    </div> 
+                  <%# end %>
+                
+                  <div class="actions">
+                    <%= f.submit "Iniciar sesión", class: "btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" %>
+                  </div>
+                <% end %>
+
+                <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                  <%= link_to "¿Olvidó su contraseña?", new_password_path(resource_name) %><br />
+                <% end %>
+
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>

@@ -1,0 +1,24 @@
+
+<div class="row mt-5">
+  <div class="col-12">
+    <a href="/usuarios/1" class="btn btn-primary">Agregar nuevo usuario</a>
+  </div>
+</div>
+<div class="row mt-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

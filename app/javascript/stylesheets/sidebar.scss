@@ -1,0 +1,125 @@
+/* Se importa un tipo de letra desde fonts de google*/
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* estilos del sidebar completo*/
+#sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  background: #2c363b;
+  color: #fff;
+  transition: all 0.3s;
+  font-family: 'Abel', sans-serif; /* Tipo de letra*/
+
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+/* estilos del header del sidebar */
+#sidebar .sidebar-header {
+  padding: 20px;
+  background:#374349;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+#sidebar ul li a:hover {
+  color: #5c9d36;
+  background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+  color: #fff;
+  background: #5ca783;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #5f717b;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+a, a:hover, a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+#content{
+  padding: 10px 40px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+
+.btn-menu{
+  color: #fff;
+  background-color: #0f8ea2;
+}
+
+
+/* Se cambia el comportamiento del menu en las pantallas pequeñas , en lugar de aparecer de forma predeterminada, 
+* se ocultará y aparecerá solo después de hacer clic en el botón de alternancia.
+*/
+
+@media (max-width: 768px) {
+  #sidebar {
+      margin-left: -250px;
+  }
+  #sidebar.active {
+      margin-left: 0;
+  }
+
+  .sidebar-active{
+      margin-left: 250px;
+  }
+}
+
+@media (min-width: 768px) {
+  // Desplaza el contenido hacia la derecha para dar cabida al menu lateral
+  .toward-the-right{
+      width: calc(100% - 250px)!important;
+  }
+}
+
+
+
+
+

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # Se establece un controlador para las invitaciones
+  devise_for :users, controllers: { invitations: 'users/invitations' }
 
   root to: 'home#index'
 

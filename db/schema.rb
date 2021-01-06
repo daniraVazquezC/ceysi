@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_01_06_024802) do
     t.integer "initial_stock", default: 0, null: false
     t.integer "stock", default: 0, null: false
     t.float "price", default: 0.0, null: false
+    t.boolean "with_minimum_stock", default: false
+    t.integer "minimum_stock", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -7,6 +7,8 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :initial_stock, default: 0, null: false
       t.integer :stock, default: 0, null: false
       t.float :price, default: 0.0, null: false
+      t.boolean :with_minimum_stock, default: false
+      t.integer :minimum_stock, default: 0
       t.timestamps
     end
   end

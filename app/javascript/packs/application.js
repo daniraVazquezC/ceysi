@@ -8,8 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 // Esto agrega las funciones creadas para que el sidebar funcione 
-require("custom/sidebar")
-
+require("./custom/sidebar")
+require("./custom/general_script")
 
 require("bootstrap")
 import "../stylesheets/application";
@@ -19,3 +19,4 @@ document.addEventListener("turbolinks:load", function() {
         $('[data-toggle="popover"]').popover()
     })
 })
+

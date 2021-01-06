@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 
   $('#sidebarCollapse').on('click', function () {
     // muestra u oculta el sidebar

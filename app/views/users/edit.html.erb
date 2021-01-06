@@ -1,0 +1,47 @@
+<div class="row mt-5">
+  <%= form_for @user, html: {class: 'col-xl-8' } do |f| %>
+    <div class="form-group row">
+      <%= f.label :name, "Nombre", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :email, "Correo electrónico *", class: "col-sm-2 col-form-label"%>
+      <div class="col-sm-10">
+        <%= f.email_field :email, class: "form-control", required: true%>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :role, "Tipo de usuario", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%# Comentario: se colocan en el select los roles que puede tener un usuario %> 
+        <%= f.select :role, options_for_select([["Administrador", "administrador"], ["Usuario", "usuario"]], @user.role),{}, {class: "form-control"} %>
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <div class="col-sm-2">¿Usuario activo?</div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <%= check_box("user", "active")%>
+          <label class="form-check-label" for="gridCheck1">
+            * Si se desmarca esta casilla el usuario se guardará como inactivo y no podrá ingresar al sistema
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <%= submit_tag "Guardar", class: "btn btn-primary"  %>
+      </div>
+    </div>
+    <% end %>
+</div>
+
+
+
+

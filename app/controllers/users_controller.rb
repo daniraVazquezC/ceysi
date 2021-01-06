@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   # Comentario: Indica el layout a utilizar para las vistas de este controlador
   layout 'general'
+  # Comentario: Define una accion a realizar antes de ejecutar ciertos metodos
+  before_action :set_user, only: [:show, :edit, :update]
 
   # Comentario: Este método "devuelve" a todos los usuarios registrados en la base de datos, en la tabla de users 
   def index
@@ -11,7 +13,6 @@ class UsersController < ApplicationController
 
   # Comentario: Este método devuelve el usuario cuyo id de la tabla users corresponda al enviado como parametro (params[:id])
   def show
-    @user = User.find(params[:id])
   end
 
   def new
@@ -32,22 +33,26 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   # Comentario: En este metodo se actualiza el usuario
   def update
-    user = User.find(params[:id])
-    if user.update(user_params)
+    if @user.update(user_params)
       flash[:notice] = "Usuario actualizado con éxito"
       redirect_to users_path
     else
-      flash[:errors] = user.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
       redirect_to edith_user_path
     end
   end
 
   private
+
+    # Comentario: Este metodo busca el usuario en la base de datos basandose en el id en params
+    def set_user
+      @user = User.find(params[:id])
+    end
+    
     # Comentario: Se toman los parametros enviados y se realiza la depuración de cuales de ellos van a permitirse
     def user_params
       user = params.require(:user).permit(:name, :email, :role, :active)

@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   # Comentario: Esto indica que las "llamadas" a productos van a dirigirse al recurso de products 
   resources :products, path: '/productos', :except => [:new,:edit]
   get '/nuevo-producto', to: 'products#new', as: 'new_product'
-  get '/editar-usuario/:id', to: 'products#edit', as: 'edit_product'
+  get '/editar-producto/:id', to: 'products#edit', as: 'edit_product'
 end

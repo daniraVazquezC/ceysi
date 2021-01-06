@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     
     # Comentario: Se toman los parametros enviados y se realiza la depuración de cuales de ellos van a permitirse
     def user_params
-      user = params.require(:user).permit(:name, :email, :role, :active)
+      params.require(:user).permit(:name, :email, :role, :active)
     end
 
 end

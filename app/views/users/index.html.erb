@@ -1,22 +1,30 @@
 
 <div class="row mt-5">
   <div class="col-12">
-    <a href="/usuarios/1" class="btn btn-primary">Agregar nuevo usuario</a>
+    <%= link_to "Agregar nuevo usuario", new_user_path, class: "btn btn-primary"%>
   </div>
 </div>
 <div class="row mt-5">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
         <th scope="col">Email</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Estado</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= user.id %></td>
+          <td><%= user.name %></td>
           <td><%= user.email %></td>
+          <td><%= user.role.capitalize %></td>
+          <%# Comentario: Ya que active es un dato true/false , se indica que muestre "activo" si es true e "Inactivo" en caso contrario %> 
+          <td><%= user.active ? "Activo" : "Inactivo" %></td>
+          <%# Comentario: Si el usuario tiene rol de superusuario no puede ser editado en la vista %> 
+          <td><%= user.role == "superusuario" ? "" : link_to("Editar", edit_user_path(user))%></td>
         </tr>
       <% end %>
     </tbody>

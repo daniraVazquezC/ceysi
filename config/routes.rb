@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get '/nuevo-usuario', to: 'users#new', as: 'new_user'
   get '/editar-usuario/:id', to: 'users#edit', as: 'edit_user'
   
+  # Comentario: Esto indica que las "llamadas" a productos van a dirigirse al recurso de products 
+  resources :products, path: '/productos'
 end

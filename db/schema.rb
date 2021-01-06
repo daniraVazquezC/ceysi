@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_01_05_053819) do
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
     t.string "name"
-    t.string "type"
+    t.string "role"
     t.boolean "active", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true

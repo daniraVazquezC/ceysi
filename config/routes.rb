@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  # Se establece un controlador para las invitaciones
-  devise_for :users, controllers: { invitations: 'users/invitations' }
+  # Comentario: Esto indica el recurso que va a utilizar la gema devise
+  devise_for :users
 
+  # Comentario: Esto indica la pagina por defecto
   root to: 'home#index'
 
-  # Esto indica la url y a que controlador#funcion hará referencia
-  match '/usuarios', to: 'users#index', via: 'get'
-  match '/usuarios/:id', to: 'users#show', via: 'get'
+  # Comentario: Esto indica que las "llamadas" a usuarios van a dirigirse al recurso de users , excepto la de new y edit 
+  resources :users, path: '/usuarios' ,:except => [:new,:edit]
+  # Comentario: Esto indica la url y a que controlador#funcion hará referencia 
+  get '/nuevo-usuario', to: 'users#new', as: 'new_user'
+  get '/editar-usuario/:id', to: 'users#edit', as: 'edit_user'
+  
 end

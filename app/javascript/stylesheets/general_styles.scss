@@ -1,0 +1,8 @@
+/* Comentario: Aqui se incluyen los estilos que no son especificos de una vista*/
+
+/* Comentario: Esto agrega el '*' a los campos que son requeridos en un formulario */
+.form-group.required .col-form-label:after {
+  content:"*";
+  color:red;
+  font-weight: 600;
+}

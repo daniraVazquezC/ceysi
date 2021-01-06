@@ -1,0 +1,31 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <%= link_to "Agregar nuevo producto", new_product_path, class: "btn btn-primary"%>
+  </div>
+</div>
+<div class="row mt-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Código de producto</th>
+        <th scope="col">Nombre de producto</th>
+        <th scope="col">Existencia</th>
+        <th scope="col">Precio</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= link_to product.product_code, show_product_path(product)%></td>
+          <td><%= product.name %></td>
+          <td><%= product.stock %></td>
+          <td><%= product.price %></td>
+          <td><%= link_to "Editar", edit_product_path(product)%></td>
+          <%# Comentario:  %> 
+          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

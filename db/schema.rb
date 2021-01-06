@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_024802) do
     t.string "product_code"
     t.string "name"
     t.integer "initial_stock"
+    t.integer "stock"
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

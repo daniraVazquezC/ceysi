@@ -30,13 +30,13 @@
               <a href="#">Ventas</a>
             </li>
             <li>
-              <a href="#">Productos</a>
+              <%= link_to 'Productos', products_path %>
             </li>
             <li>
               <a href="#settingsubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
               <ul class="collapse list-unstyled" id="settingsubmenu">
                 <li>
-                  <%= link_to 'Usuarios','/usuarios' %>
+                  <%= link_to 'Usuarios', users_path %>
                 </li>
                 <li>
                     <a href="#">Perfil</a>

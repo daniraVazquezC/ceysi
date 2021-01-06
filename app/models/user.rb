@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   # Comentario: Realiza la validación de que el correo electronico este presente antes de crear el registro en la base de datos 
   validates :email, presence: true
+  # Comentario: Valida que el email sea unico en la base de datos, sin importar mayusculas y minusculas
   validates_uniqueness_of :email, case_sensitive: false
   # Comentario: Si el nuevo usuario no cuenta con un nombre se le asignará uno por defecto
   before_save :set_name

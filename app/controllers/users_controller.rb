@@ -11,10 +11,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # Comentario: Este método devuelve el usuario cuyo id de la tabla users corresponda al enviado como parametro (params[:id])
-  def show
-  end
-
   def new
     @user = User.new
   end

@@ -13,6 +13,9 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, case_sensitive: false
   # Comentario: Si el nuevo usuario no cuenta con un nombre se le asignará uno por defecto
   before_save :set_name
+  # Comentario: Esto indica una relacion con las transacciones en donde una "user" tiene o puede tener 
+  # muchas "transactions"
+  has_many :transactions
 
   # Comentario: Este es el método que se llama en el before_save(antes de guardar)
   def set_name

@@ -25,14 +25,6 @@
     </div>
 
     <div class="form-group required row">
-      <%= f.label :initial_stock, "Existencia inicial:", class: "col-md-3 col-form-label", value: "0" %>
-      <div class="col-md-9">
-        <%# Comentario: Este campo no permite letras y se establece 0 como valor minimo, ademas permite unicamente enteros %>
-        <%= f.number_field :initial_stock, class: "form-control", value: @product.initial_stock, min: 0, required: true, placeholder: "Este campo no puede quedar vacio, debe ser al menos 0" %>
-      </div>
-    </div>
-
-    <div class="form-group required row">
       <%= f.label :price, "Precio $", class: "col-md-3 col-form-label" %>
       <div class="col-md-9">
         <%# Comentario: Este campo no permite letras y se establece 0 como valor minimo, ademas permite 2 decimales %>
@@ -58,14 +50,24 @@
         <%= f.number_field :minimum_stock, class: "form-control", value: @product.minimum_stock, min: 0 %>
       </div>
     </div>
-    
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <%= submit_tag "Crear producto", class: "btn btn-primary"  %>
+
+    <div class="form-group row mt-5">
+      <div class="offset-md-6 col-md-6 text-right">
+        <%= submit_tag "Modificar producto", class: "btn btn-primary mr-2" %>
+        <%= link_to "Cancelar", products_path , class:"btn btn-secondary" %>
       </div>
     </div>
-
   <% end %>
 </div>
 
-
+<div class="row">
+  <fieldset class="col-6 scheduler-border">
+      <legend class="scheduler-border">Adicionales</legend>
+      <div class="col-12">
+        <button class="btn btn-info">Realizar ajuste de cantidades</button>
+      </div>
+      <div class="col-12">
+        <%= link_to 'Eliminar producto', @product, method: :delete, data: { confirm: 'Are you sure?' } , class:"mt-3 btn btn-danger px-5"%>
+      </div>
+  </fieldset>
+</div>

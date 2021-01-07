@@ -59,9 +59,10 @@
       </div>
     </div>
     
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <%= submit_tag "Crear producto", class: "btn btn-primary"  %>
+    <div class="form-group row mt-5">
+      <div class="offset-md-6 col-md-6 text-right">
+        <%= submit_tag "Crear producto", class: "btn btn-primary mr-2" %>
+        <%= link_to "Cancelar", products_path , class:"btn btn-secondary" %>
       </div>
     </div>
 

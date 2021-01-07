@@ -12,6 +12,7 @@
         <th scope="col">Existencia</th>
         <th scope="col">Precio</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -22,8 +23,7 @@
           <td><%= product.stock %></td>
           <td><%= product.price %></td>
           <td><%= link_to "Editar", edit_product_path(product)%></td>
-          <%# Comentario:  %> 
-          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to "Ajuste de cantidades", "#"%></td>
         </tr>
       <% end %>
     </tbody>

@@ -3,32 +3,28 @@ class SalesController < ApplicationController
   before_action :authenticate_user!
   # Comentario: Indica el layout a utilizar para las vistas de este controlador
   layout 'general'
-
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
-
-
+    
+  # Comentario: Este método "devuelve" a todas las transacciones registradas con el tipo de venta(sale) en la base de datos, en la tabla de transacciones 
   def index
-    @sale = Sale.all
+    @sales = Sale.all
   end
 
+  #Comentario: Este método devuelve la información de una venta especifica
   def show
+    @sale = Sale.find(params[:id])
   end
 
   def new
-    @transaction = Transaction.new
+    @sale = Sale.new
   end
 
-  def edit
+  def create
+    binding.pry
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transaction
-      @transaction = Transaction.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def transaction_params
-      params.fetch(:transaction, {})
+    def sale_params
+      
     end
 end

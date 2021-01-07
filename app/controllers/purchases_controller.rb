@@ -7,8 +7,9 @@ class PurchasesController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
 
+  # Comentario: Este método "devuelve" a todas las transacciones registradas con el tipo de compra(purchase) en la base de datos, en la tabla de transacciones 
   def index
-    @purchase = Purchase.all
+    @purchases = Purchase.all
   end
 
   def show

@@ -15,4 +15,15 @@ Rails.application.routes.draw do
   resources :products, path: '/productos', :except => [:new,:edit]
   get '/nuevo-producto', to: 'products#new', as: 'new_product'
   get '/editar-producto/:id', to: 'products#edit', as: 'edit_product'
+
+  # Comentario: Esto indica que las "llamadas" a sales van a dirigirse al recurso de sales
+  resources :sales,  path: '/ventas', type: 'Sale'
+  # Comentario: Esto indica que las "llamadas" a compras van a dirigirse al recurso de purchases
+  resources :purchases,  path: '/compras', type: 'Purchase'
+
+
+  resources :transactions, path: '/transacciones'
+
+  
+  #get '/ventas', to: 'transactions#sales', as: 'sales'
 end

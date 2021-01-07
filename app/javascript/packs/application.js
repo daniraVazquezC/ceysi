@@ -7,6 +7,9 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+// Comentario: Esto permite utilizar los iconos instalados con 'yarn add @fortawesome/fontawesome-free' en la consola
+import "@fortawesome/fontawesome-free/css/all"
+
 // Esto agrega las funciones creadas para que el sidebar funcione 
 require("./custom/sidebar")
 require("./custom/general_script")

@@ -13,6 +13,7 @@
         <th scope="col">Tipo</th>
         <th scope="col">Estado</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -24,7 +25,16 @@
           <%# Comentario: Ya que active es un dato true/false , se indica que muestre "activo" si es true e "Inactivo" en caso contrario %> 
           <td><%= user.active ? "Activo" : "Inactivo" %></td>
           <%# Comentario: Si el usuario tiene rol de superusuario no puede ser editado en la vista %> 
-          <td><%= user.role == "superusuario" ? "" : link_to("Editar", edit_user_path(user))%></td>
+          <td>
+            <% if user.role != "superusuario"%>
+              <i class="fas fa-edit general-green"></i>
+              <%= link_to "Editar", edit_user_path(user), class:"edit-details" %>
+            <% end %>
+          </td>
+          <td>
+            <i class="fas fa-redo-alt general-green"></i>
+            <%= link_to "Reenviar invitación", "#", class: "resend-invitation" %>
+          </td>
         </tr>
       <% end %>
     </tbody>

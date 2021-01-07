@@ -1,7 +1,8 @@
 <div class="row mt-5">
   <div class="col-6">
-    <i class="fas fa-arrow-left"></i>
-    <%= link_to 'Regresar al listado de productos', products_path %>
+    <%= link_to products_path, class: "btn btn-primary" do%>
+      <i class="fas fa-arrow-left"></i> Regresar al listado de productos
+    <% end %>
   </div>
 </div>
 

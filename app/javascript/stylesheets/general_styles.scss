@@ -24,3 +24,57 @@ legend.scheduler-border {
     padding:0 10px;
     border-bottom:none;
 }
+
+/* Comentario: Estilos para el listado de productos  y usuarios*/
+
+/* Comentario: Estilo del enlace a ver la información del producto */
+a.show-details{
+  color: #5ca783;
+  font-weight: bold;
+}
+
+a.show-details:hover{
+  text-decoration: underline;
+}
+
+/* Comentario: Estilo del enlace a editar la informacion del producto y usuario */
+a.edit-details, a.resend-invitation, a.adjust-quantity{
+  color: #5ca783;
+}
+
+/* Comentario: colores para letras, iconos y botones */
+.general-green{
+  color: #5ca783;
+}
+
+.btn-primary{
+  background-color: #5ca783;
+  border-color: #5ca783;
+}
+
+.btn-primary:hover, .btn-primary:focus{
+  background-color: #589c7b!important;
+}
+
+.btn-menu, .btn-logout{
+  color: #158F54;
+  background-color: #fff;
+  border-color: #158F54;
+}
+
+.btn-menu:hover, .btn-logout:hover{
+  color: #fff;
+  background-color: #5ca783;
+  border-color: #158F54;
+}
+
+.btn-info {
+  color: #fff;
+  background-color: #63ab88;
+  border-color: #17a2b8;
+}
+
+.red-text{
+  color: #de4e46;
+  font-weight: bold;
+}

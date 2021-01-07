@@ -1,26 +1,21 @@
 <div class="row mt-5">
   <div class="col-12">
-    <%= link_to "Nueva venta", new_sale_path, class: "btn btn-primary"%>
+    <%= link_to "Registrar nueva compra", new_purchase_path, class: "btn btn-primary"%>
   </div>
 </div>
 <div class="row mt-5">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Código de producto</th>
-        <th scope="col">Nombre de producto</th>
-        <th scope="col">Existencia</th>
-        <th scope="col">Precio</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th scope="col"># Orden</th>
+        <th scope="col">Fecha de creación</th>
       </tr>
     </thead>
     <tbody>
-      <% @products.each do |product| %>
+      <% @purchases.each do |purchase| %>
         <tr>
-          <td><%= product.product_code %></td>
-          <td><%= link_to product.name, product_path(product), class: "show-details" %></td>
-          <td><%= product.stock %></td>
+          <td><%= link_to purchase.order_number, purchase_path(purchase), class: "show-details" %></td>
+          <td><%= purchase.created_at %></td>         
         </tr>
       <% end %>
     </tbody>

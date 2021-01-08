@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 $(document).on('turbolinks:load', function () {
-  console.log("njffdfdhfhhf")
+
   /* Comentario: Esta funcion despliega el input para indicar la cantidad minima de stock si el producto tendra una cantidad minima,
   * funciona al cargar la pagina*/
     if( $('#product_with_minimum_stock').is(':checked') ) {

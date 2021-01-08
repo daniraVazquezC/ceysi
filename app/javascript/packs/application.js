@@ -7,6 +7,11 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+// Comentario: Esto se agrega para que los formularios anidados(nested_form) funcionen
+require("jquery")
+require("@nathanvda/cocoon")
+
 // Comentario: Esto permite utilizar los iconos instalados con 'yarn add @fortawesome/fontawesome-free' en la consola
 import "@fortawesome/fontawesome-free/css/all"
 

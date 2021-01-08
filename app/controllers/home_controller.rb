@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   layout 'general'
 
   def index
+    @transactions = Transaction.all
   end 
 
 end

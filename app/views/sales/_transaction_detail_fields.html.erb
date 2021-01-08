@@ -1,8 +1,9 @@
   <div class='form-group container-fluid nested-fields'>
     <div class="row py-3 my-1 bg-whitesmoke">
+
       <%= f.label :product_id, "Producto:", class: "col-lg-2 col-md-2 col-sm-2 col-form-label" %>
       <div class="col-md-5 col-sm-5">
-        <%= f.text_field :product_id, class: "form-control", required: true %>
+        <%= f.select 'product_id', options_for_select(@products),   {}, {class: "form-control select-product", required: true}  %>
       </div>
 
       <%= f.label :quantity, "Cantidad:", class: "col-lg-2 col-md-2 col-sm-2 col-form-label" %>
@@ -17,3 +18,5 @@
       </div>
     </div>    
   </div>
+
+

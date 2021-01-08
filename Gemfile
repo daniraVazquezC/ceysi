@@ -22,11 +22,14 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Gema para autenticacion de usuarios
+# Comentario: Gema para autenticacion de usuarios
 gem 'devise'
 
-# Gema para enviar invitaciones por correo electrónico y aceptar la invitación configurando la contraseña.
+# Comentario: Gema para enviar invitaciones por correo electrónico y aceptar la invitación configurando la contraseña.
 gem 'devise_invitable', '~> 2.0.0'
+
+# Comentario: Gema para crear formularios anidados
+gem 'cocoon'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

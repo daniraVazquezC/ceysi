@@ -7,15 +7,21 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Código de orden</th>
-        <th scope="col">Fecha de creación</th>
+        <th># de transacción</th>
+        <th>Fecha de creación</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% @transactions.each do |transaction| %>
         <tr>
-          <td><%= link_to transaction.order_number, transaction_path(transaction), class: "show-details" %></td>
-          <td><%= transaction.created_at %></td>         
+          <td><%= transaction.id %></td>
+          <td><%= transaction.created_at %></td> 
+          <td>
+            <%= link_to transaction_path(transaction), class: "general-green" do %> 
+              <i class="far fa-eye"></i> Ver detalles
+            <% end %>
+          </td>         
         </tr>
       <% end %>
     </tbody>

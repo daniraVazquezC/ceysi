@@ -16,7 +16,7 @@
 </div>
 
 <div class="row mt-5">
-  <%= form_for @sale, html: {class: 'col-xl-12 ' } do |f| %>
+  <%= form_for @sale, html: {class: 'col-xl-12', id: 'new_sale' } do |f| %>
 
     <div class="form-group required row mb-5">
       <%= f.label :order_number, "Código o número de orden:", class: "col-sm-4 col-lg-3 col-form-label" %>
@@ -25,6 +25,7 @@
       </div>
     </div>
     
+    <%# Comentario: Con este boton se agrega un nuevo producto, el link_to_add_association es propio de la gema Cocoon para formularios anidados %>
     <div class="form-group row">
       <%= link_to_add_association 'Agregar producto', f, :transaction_details , class: "btn btn-primary" %>
     </div>
@@ -33,7 +34,6 @@
       <%# Comentario: Se carga un partial que contiene el codigo html para agregar cada producto %>
       <%= render 'transaction_detail', f: transaction_detail %>
     <% end %>
-
 
     <div class="form-group row mt-5">
       <div class="offset-md-6 col-md-6 text-right">

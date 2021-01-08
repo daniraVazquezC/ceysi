@@ -60,10 +60,10 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # Agregar esta linea para definir opciones de URL predeterminadas (Devise), en producción la opcion de host se cambiará por el host actual
+  # Comentario: Agregar esta linea para definir opciones de URL predeterminadas (Devise), en producción la opcion de host se cambiará por el host actual
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  # Configuracion de mailtrap para pruebas de envio de correo
+  # Comentario: configuracion de mailtrap para pruebas de envio de correo
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :user_name => 'ea3a76042a1753',

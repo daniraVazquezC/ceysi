@@ -17,9 +17,11 @@
         <tr>
           <td><%= outbound_order.id %></td>
           <td><%= outbound_order.created_at %></td>    
-          <%= link_to outbound_order_path(outbound_order), class: "general-green" do %> 
-            <i class="far fa-eye"></i> Ver detalles
-          <% end %>     
+          <td>
+            <%= link_to outbound_order_path(outbound_order), class: "general-green" do %> 
+              <i class="far fa-eye"></i> Ver detalles
+            <% end %>     
+          </td>
         </tr>
       <% end %>
     </tbody>

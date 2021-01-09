@@ -1,0 +1,45 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <h2>Crear nueva orden de egreso</h2>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-6">
+    <%= link_to outbound_orders_path, class: "btn btn-primary" do%>
+      <i class="fas fa-arrow-left"></i> Regresar
+    <% end %>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <%= form_for @outbound_order, html: {class: 'col-xl-12', id: 'new_outbound_order' } do |f| %>
+
+    <div class="form-group row mb-5">
+      <%= f.label :comments, "Comentarios:", class: "col-sm-3 col-lg-2 col-form-label" %>
+      <div class="col-sm-9 col-lg-10">
+        <%= f.text_area :comments, class: "form-control" %>
+      </div>
+    </div>
+    
+    <%# Comentario: Con este boton se agrega un nuevo producto, el link_to_add_association es propio de la gema Cocoon para formularios anidados %>
+    <div class="form-group row">
+      <%= link_to_add_association 'Agregar producto', f, :transaction_details , class: "btn btn-primary" %>
+    </div>
+
+    <%= f.fields_for :transaction_details do |transaction_detail| %>
+      <%# Comentario: Se carga un partial que contiene el codigo html para agregar cada producto %>
+      <%= render 'transaction_detail', f: transaction_detail %>
+    <% end %>
+
+    <div class="form-group row mt-5">
+      <div class="offset-md-6 col-md-6 text-right">
+        <%= submit_tag "Crear orden de egreso", class: "btn btn-primary mr-2" %>
+        <%= link_to "Cancelar", outbound_orders_path , class:"btn btn-secondary" %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+
+

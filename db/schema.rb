@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_203403) do
+ActiveRecord::Schema.define(version: 2021_01_09_033825) do
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "product_code"
@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 2021_01_07_203403) do
   end
 
   create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "order_number"
     t.string "type"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "comments"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 

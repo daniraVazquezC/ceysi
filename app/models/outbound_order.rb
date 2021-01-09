@@ -1,0 +1,3 @@
+class OutboundOrder < Transaction 
+
+end

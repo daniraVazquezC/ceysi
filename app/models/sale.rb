@@ -1,3 +1,0 @@
-class Sale < Transaction 
-
-end

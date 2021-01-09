@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function () {
     }    
   });
 
-  $('#new_sale').on('cocoon:after-insert', function() {
+  $('#new_outbound_order').on('cocoon:after-insert', function() {
     $('.select-product').select2()
   });
 

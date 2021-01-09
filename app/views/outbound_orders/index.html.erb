@@ -1,0 +1,28 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <%= link_to "Registrar orden de egreso", new_outbound_order_path, class: "btn btn-primary"%>
+  </div>
+</div>
+<div class="row mt-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Código de orden</th>
+        <th scope="col">Fecha de creación</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @outbound_orders.each do |outbound_order| %>
+        <tr>
+          <td><%= outbound_order.id %></td>
+          <td><%= outbound_order.created_at %></td>    
+          <%= link_to outbound_order_path(outbound_order), class: "general-green" do %> 
+            <i class="far fa-eye"></i> Ver detalles
+          <% end %>     
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

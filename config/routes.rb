@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get '/editar-producto/:id', to: 'products#edit', as: 'edit_product'
 
   # Comentario: Esto indica que las "llamadas" a sales van a dirigirse al recurso de sales
-  resources :sales,  path: '/ventas', type: 'Sale', :except => [:new]
-  get '/nueva-venta', to: 'sales#new', as: 'new_sale'
+  resources :outbound_orders,  path: '/ordenes-egreso', type: 'OutboundOrder', :except => [:new]
+  get '/nueva-orden-egreso', to: 'outbound_orders#new', as: 'new_outbound_order'
 
   # Comentario: Esto indica que las "llamadas" a compras van a dirigirse al recurso de purchases
   resources :purchases,  path: '/compras', type: 'Purchase'

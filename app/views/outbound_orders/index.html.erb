@@ -7,7 +7,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Código de orden</th>
+        <th scope="col"># de orden</th>
         <th scope="col">Fecha de creación</th>
         <th scope="col"></th>
       </tr>
@@ -16,7 +16,7 @@
       <% @outbound_orders.each do |outbound_order| %>
         <tr>
           <td><%= outbound_order.id %></td>
-          <td><%= outbound_order.created_at %></td>    
+          <td><%= outbound_order.created_at.to_s(:standart_format)%></td>    
           <td>
             <%= link_to outbound_order_path(outbound_order), class: "general-green" do %> 
               <i class="far fa-eye"></i> Ver detalles

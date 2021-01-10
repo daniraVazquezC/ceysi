@@ -1,6 +1,9 @@
 import $ from 'jquery';
-import 'select2'
-import 'select2/dist/css/select2.css'
+
+// Comentario: Se agregan los estilos y el javascript del pugin bootstrap-select
+import 'bootstrap-select';
+import 'bootstrap-select/dist/css/bootstrap-select.css'
+
 
 $(document).on('turbolinks:load', function () {
 
@@ -23,8 +26,9 @@ $(document).on('turbolinks:load', function () {
     }    
   });
 
+  // Comentario: Esto es para indicar que en el formulario anidado se va a utilizar un selector especial para las busquedas (bootstrap-select)
   $('#new_outbound_order').on('cocoon:after-insert', function() {
-    $('.select-product').select2()
+    $('.select-product').selectpicker();
   });
 
 });

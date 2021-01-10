@@ -21,9 +21,9 @@ class ProductsController < ApplicationController
   # Comentario: este metodo crea el producto en la base de datos
   def create
     # Comentario: Se iguala el campo stock al de initial_stock
-    @product = Product.new(product_params.merge(stock: product_params[:initial_stock]))
+    @product = Product.new(product_params)
     if @product.save
-      flash[:notice] = "Producto creado con exito"
+      flash[:notice] = "Producto creado con éxito"
       redirect_to @product
     else
       flash[:errors] = @product.errors.full_messages
@@ -35,12 +35,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @product.update(product_params)
+      flash[:notice] = "Producto modificado con éxito"
+      redirect_to @product
+    else
+      render :edit
     end
   end
 
@@ -59,6 +58,6 @@ class ProductsController < ApplicationController
 
     # Comentario: Se toman los parametros enviados y se realiza la depuración de cuales de ellos van a permitirse
     def product_params
-      params.require(:product).permit(:product_code, :name, :initial_stock, :price, :with_minimum_stock, :minimum_stock)
+      params.require(:product).permit(:product_code, :name, :initial_stock, :price, :with_minimum_stock, :minimum_stock, :description)
     end
 end

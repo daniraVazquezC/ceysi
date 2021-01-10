@@ -14,7 +14,7 @@ es:
   devise:
     failure:
       already_authenticated: 'Ya está dentro del sistema.'
-      unauthenticated: 'Necesita ingresar o registrarse para continuar.'
+      unauthenticated: 'Necesita ingresar para continuar.'
       unconfirmed: 'Debe confirmar su cuenta para continuar.'
       locked: 'Su cuenta está bloqueada.'
       invalid: 'Correo o contraseña inválidos.'

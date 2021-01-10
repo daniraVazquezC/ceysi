@@ -47,6 +47,17 @@
 
   <div class="col-xl-10">
     <div class="row">
+      <div class="col-md-3">
+        <p>Descripción: </p>
+      </div>
+      <div class="col-md-9">
+        <p><%= simple_format(@product.description) %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-10">
+    <div class="row">
       <div class="col-md-12">
         <% if @product.with_minimum_stock %>
           <p>Con un minimo de existencias de <%= @product.minimum_stock %> piezas</p>

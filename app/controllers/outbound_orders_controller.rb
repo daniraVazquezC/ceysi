@@ -12,6 +12,7 @@ class OutboundOrdersController < ApplicationController
   #Comentario: Este método devuelve la información de una venta especifica
   def show
     @outbound_order = OutboundOrder.find(params[:id])
+    @transaction_details = @outbound_order.transaction_details
   end
 
   def new
@@ -19,11 +20,12 @@ class OutboundOrdersController < ApplicationController
     @products = Product.all.collect {|p| [p.product_code + ' - ' + p.name, p.id]}
   end
 
+  # TODO : el sistema debe rechazar crear la orden si no lleva al menos un producto asociado
   def create
     @outbound_order = OutboundOrder.new(outbound_order_params.merge(user_id: current_user.id))
     if @outbound_order.save
       flash[:notice] = "Venta creada con exito"
-      redirect_to outbound_order_path
+      redirect_to outbound_orders_path
     else
       flash[:errors] = @outbound_order.errors.full_messages
       render :new
@@ -33,6 +35,6 @@ class OutboundOrdersController < ApplicationController
   private
 
     def outbound_order_params
-      params.require(:outbound_order).permit(:order_number, transaction_details_attributes: [:product_id, :quantity])
+      params.require(:outbound_order).permit(:comments, transaction_details_attributes: [:product_id, :quantity])
     end
 end

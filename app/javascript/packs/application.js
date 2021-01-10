@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+// Comentario: Esto se agrega para que el sistema pueda utilizar bootstrap
+require("bootstrap")
 // Comentario: Esto se agrega para que los formularios anidados(nested_form) funcionen
 require("jquery")
 require("@nathanvda/cocoon")
@@ -19,7 +21,7 @@ import "@fortawesome/fontawesome-free/css/all"
 require("./custom/sidebar")
 require("./custom/general_script")
 
-require("bootstrap")
+
 import "../stylesheets/application";
 document.addEventListener("turbolinks:load", function() {
     $(function () {
@@ -27,4 +29,3 @@ document.addEventListener("turbolinks:load", function() {
         $('[data-toggle="popover"]').popover()
     })
 })
-

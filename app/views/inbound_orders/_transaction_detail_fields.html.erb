@@ -1,0 +1,26 @@
+  <div class='form-group container-fluid nested-fields'>
+    <div class="row py-3 my-1 bg-whitesmoke">
+
+      <%= f.label :product_id, "Producto:", class: "col-lg-2 col-md-2 col-sm-2 col-form-label" %>
+      <div class="col-md-5 col-sm-5">
+        <%= f.select 'product_id', options_for_select(@products.collect {|p| [p.name, p.id, {"data-tokens":p.product_code}] }), 
+                                  {prompt: '-- Seleccione un producto --'}, 
+                                  { class: "form-control select-product", required: true,
+                                    "data-live-search": "true", "data-size": "5","data-live-search-placeholder": "Nombre o código del producto",
+                                    "data-live-search-normalize": true}  %>
+      </div>
+
+      <%= f.label :quantity, "Cantidad:", class: "col-lg-2 col-md-2 col-sm-2 col-form-label" %>
+      <div class="col-md-2 col-sm-2">
+        <%= f.number_field :quantity, class: "form-control" , value: 1, min: 1, required: true %>
+      </div>
+
+      <div class="col-lg-1 col-md-1 col-sm-1">
+        <%= link_to_remove_association f, class:"btn" do %>
+          <i class="fas fa-trash-alt general-red"></i>
+        <% end %>  
+      </div>
+    </div>    
+  </div>
+
+

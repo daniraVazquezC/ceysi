@@ -31,4 +31,8 @@ $(document).on('turbolinks:load', function () {
     $('.select-product').selectpicker();
   });
 
+  $('#new_inbound_order').on('cocoon:after-insert', function() {
+    $('.select-product').selectpicker();
+  });
+
 });

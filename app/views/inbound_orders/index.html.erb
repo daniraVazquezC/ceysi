@@ -1,0 +1,30 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <%= link_to "Registrar orden de ingreso", new_inbound_order_path, class: "btn btn-primary"%>
+  </div>
+</div>
+<div class="row mt-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"># de orden</th>
+        <th scope="col">Fecha de creación</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @inbound_orders.each do |inbound_order| %>
+        <tr>
+          <td><%= inbound_order.id %></td>
+          <td><%= inbound_order.created_at.to_s(:standart_format) %></td>    
+          <td>
+            <%= link_to inbound_order_path(inbound_order), class: "general-green" do %> 
+              <i class="far fa-eye"></i> Ver detalles
+            <% end %>     
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

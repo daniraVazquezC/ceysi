@@ -16,7 +16,7 @@
       <% @transactions.each do |transaction| %>
         <tr>
           <td><%= transaction.id %></td>
-          <td><%= transaction.created_at %></td> 
+          <td><%= transaction.created_at.to_s(:standart_format) %></td> 
           <td>
             <%= link_to transaction_path(transaction), class: "general-green" do %> 
               <i class="far fa-eye"></i> Ver detalles

@@ -1,0 +1,3 @@
+class InboundOrder < Transaction 
+
+end

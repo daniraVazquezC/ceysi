@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   # Comentario: Este método "devuelve" a todos los usuarios registrados en la base de datos, en la tabla de users 
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :desc)
   end
 
   def new

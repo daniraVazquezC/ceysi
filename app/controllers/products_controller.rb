@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   # Comentario: Devuelve el listado total de productos en la base de datos
   def index
-    @products = Product.all
+    @products = Product.all.order(created_at: :desc)
   end
 
   def show
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'Producto eliminado con éxito' }
     end
   end
 

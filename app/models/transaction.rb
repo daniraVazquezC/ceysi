@@ -8,17 +8,17 @@ class Transaction < ApplicationRecord
 
   # Comentario: Con esto se le indica al modelo que se van a aceptar atributos anidados que pertenecen al modelo de transaction_details
   accepts_nested_attributes_for :transaction_details, reject_if: :all_blank, allow_destroy: true
-
+  validates :transaction_details, presence: true
 
 
   # TODO : Pendiente de revisar 
    # Comentario: Si el campo de user_id va con un valor nulo (nil) se le asigna el valor del id del usuario actual
-  before_save :set_user_id
+  #before_save :set_user_id
 
   # Comentario: Este es el método que se llama en el before_save(antes de guardar)
-  def set_user_id
+  #def set_user_id
   #  user_id = current_user.id if user_id.nil?
-  end
+ # end
 
 end
 

@@ -2,7 +2,7 @@
 # Comentario: configuración de la paginación, para cambiar el numero de registros por pagina, unicamente debe cambiarse 
 # el valor de config.default_per_page = 15
 Kaminari.configure do |config|
- config.default_per_page = 2
+ config.default_per_page = 20
   # config.max_per_page = nil
   config.window = 2
   # config.outer_window = 0

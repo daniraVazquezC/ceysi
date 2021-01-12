@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   # Comentario: Devuelve el listado total de productos en la base de datos
   def index
-    @products = Product.all.order(created_at: :desc)
+    @products = Product.page(params[:page]).order(created_at: :desc)
   end
 
   def show

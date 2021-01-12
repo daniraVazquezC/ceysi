@@ -1,5 +1,8 @@
 /* Comentario: Aqui se incluyen los estilos que no son especificos de una vista*/
 
+// Comentario: creación de variables
+$general-green: #5ca783;
+
 /* Comentario: Esto agrega el '*' a los campos que son requeridos en un formulario */
 .form-group.required .col-form-label:after {
   content:"*";
@@ -35,7 +38,7 @@ a.edit-details, a.resend-invitation, a.adjust-quantity{
 
 /* Comentario: colores para letras, iconos y botones */
 .general-green{
-  color: #5ca783;
+  color: $general-green;
 }
 
 .general-red{
@@ -80,4 +83,18 @@ a.edit-details, a.resend-invitation, a.adjust-quantity{
 
 .hide{
   display: none;
+}
+
+
+
+// Comentario: estilos para el paginador
+
+.page-item .page-link{
+  color: $general-green;
+}
+
+.page-item.active .page-link {
+  color: #fff;
+  background-color: #5ca783;
+  border-color: #7d9064;
 }

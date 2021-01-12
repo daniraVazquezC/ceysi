@@ -6,7 +6,7 @@ class InboundOrdersController < ApplicationController
 
   # Comentario: Este método "devuelve" a todas las transacciones registradas con el tipo de venta(sale) en la base de datos, en la tabla de transacciones 
   def index
-    @inbound_orders = InboundOrder.all.order(created_at: :desc)
+    @inbound_orders = InboundOrder.page(params[:page]).order(created_at: :desc)
   end
 
   #Comentario: Este método devuelve la información de una venta especifica

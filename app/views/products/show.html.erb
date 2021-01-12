@@ -75,8 +75,6 @@
     <legend class="scheduler-border">Acciones para este producto</legend>
     <div class="col-12">
       <%= link_to 'Editar producto', edit_product_path(@product), class:"btn btn-primary px-5"%> 
-    </div>
-    <div class="col-12 mt-3 ">
       <button class="btn btn-info quantity-adjustment">Realizar ajuste de cantidades</button>
     </div>
     <% if @product.transaction_details.count == 0 %>

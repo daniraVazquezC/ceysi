@@ -35,4 +35,7 @@ $(document).on('turbolinks:load', function () {
     $('.select-product').selectpicker();
   });
 
+  $('.quantity-adjustment').on('click', function(){
+    $('#quantity-adjustment').show();
+  });
 });

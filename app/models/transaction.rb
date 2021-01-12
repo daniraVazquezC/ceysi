@@ -10,6 +10,8 @@ class Transaction < ApplicationRecord
   accepts_nested_attributes_for :transaction_details, reject_if: :all_blank, allow_destroy: true
   validates :transaction_details, presence: true
 
+  #Comentario: Esto se agrega para poder definir el tipo de ajuste de cantidades
+  attr_accessor :adjustment_type
 
   # TODO : Pendiente de revisar 
    # Comentario: Si el campo de user_id va con un valor nulo (nil) se le asigna el valor del id del usuario actual
@@ -18,7 +20,7 @@ class Transaction < ApplicationRecord
   # Comentario: Este es el método que se llama en el before_save(antes de guardar)
   #def set_user_id
   #  user_id = current_user.id if user_id.nil?
- # end
+ # end  
 
 end
 

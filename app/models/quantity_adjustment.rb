@@ -1,0 +1,3 @@
+class QuantityAdjustment < Transaction 
+
+end

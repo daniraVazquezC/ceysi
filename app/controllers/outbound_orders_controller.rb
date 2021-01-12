@@ -20,10 +20,7 @@ class OutboundOrdersController < ApplicationController
     @products = Product.all
   end
 
-  # TODO : el sistema debe rechazar crear la orden si no lleva al menos un producto asociado
-
   def create
-
     @outbound_order = OutboundOrder.new(outbound_order_params.merge(user_id: current_user.id))
     if @outbound_order.save
       flash[:notice] = "Orden de egreso registrada con éxito"

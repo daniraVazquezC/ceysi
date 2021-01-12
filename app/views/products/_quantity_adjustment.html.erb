@@ -1,0 +1,59 @@
+<div class="row mt-5">
+  <fieldset class="col-12 scheduler-border hide" id="quantity-adjustment">
+    <legend class="scheduler-border">Ajuste de cantidades para este producto</legend>
+    <%= form_for @quantity_adjustment, html: {class: 'col-xl-12'} do |f| %>
+      
+      <%= f.fields_for :transaction_details, TransactionDetail.new  do |form| %>
+        <div class="form-group row">
+          <%= form.hidden_field :product_id, value: @product.id %>
+
+          <%= form.label :quantity, "Cantidad:", class: "col-lg-2 col-md-2 col-sm-2 col-form-label" %>
+          <div class="col-md-2 col-sm-2">
+            <%= form.number_field :quantity, class: "form-control" , value: 1, min: 1, required: true %>
+          </div>    
+          
+          <%= f.label "Tipo de ajuste:", class: "col-lg-2 col-md-2 col-sm-2 col-form-label" %>
+          <div class="col-md-6 col-sm-6">
+            <%= f.select "adjustment_type", options_for_select([['Ingreso de cantidades','inbound'], ['Egreso de cantidades','outbound']]), {}, { class: 'form-control' } %>
+          </div>
+
+
+        </div>
+
+        
+      <% end %>
+
+      <div class="form-group row">
+      
+      </div>
+
+      <div class="form-group row mb-5">
+        <%= f.label :comments, "Comentarios:", class: "col-sm-3 col-lg-2 col-form-label" %>
+        <div class="col-sm-9 col-lg-10">
+          <%= f.text_area :comments, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group row mt-5">
+        <div class="offset-md-6 col-md-6 text-right">
+          <%= submit_tag "Crear ajuste de cantidades" , class: "btn btn-primary mr-2" %>
+          <%= link_to "Cancelar", product_path(@product) , class:"btn btn-secondary" %>
+        </div>
+      </div>
+
+    <% end %>
+  </fieldset>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

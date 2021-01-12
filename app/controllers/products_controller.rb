@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @quantity_adjustment = QuantityAdjustment.new()
   end
 
   def new

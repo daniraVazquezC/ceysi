@@ -31,6 +31,9 @@ gem 'devise_invitable', '~> 2.0.0'
 # Comentario: Gema para crear formularios anidados
 gem 'cocoon'
 
+# Comentario: Gema para realizar paginación
+gem 'kaminari'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

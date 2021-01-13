@@ -17,8 +17,6 @@
                 <%= image_tag("http://ceysi.com.mx/images/logo.jpg", class: "image rounded mx-auto d-block img-fluid") %>
                 <h3 class="brand">Cambiar contraseña</h3>
 
-
-
                 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
                   <%= render "devise/shared/error_messages", resource: resource %>
                   <%= f.hidden_field :reset_password_token %>

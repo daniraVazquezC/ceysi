@@ -1,0 +1,26 @@
+<div class="row mt-3">
+  <div class="col-6">
+    <p><em class="red-text">*</em> Estos campos son requeridos</p>
+  </div>
+</div>
+
+<div class="row mt-5"> 
+  <%= form_for @settings, url:update_setting_path, html: {class: 'col-xl-8' } do |f| %>
+    <div class="form-group row">
+      <%= f.label "Correos electrónicos:", class: "col-sm-4 col-form-label" %>
+      <div class="col-sm-8">
+        <%= f.text_field :value, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row mt-5">
+      <div class="col-sm-10">
+        <%= submit_tag "Guardar configuración", class: "btn btn-primary"  %>
+      </div>
+    </div>
+    <% end %>
+</div>
+
+
+
+

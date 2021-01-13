@@ -50,7 +50,9 @@
                     <a href="#"><i class="fas fa-user"></i> Perfil</a>
                   </li>
                   <li>
-                    <a href="#"><i class="fas fa-user"></i> Aviso de existencias</a>
+                    <%= link_to new_setting_path do %>
+                      <i class="fas fa-users"></i> Aviso de existencias
+                    <% end %> 
                   </li>
                 <% end %>
               </ul>

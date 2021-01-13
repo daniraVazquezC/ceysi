@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   layout 'general'
 
   def index
-    @transactions = Transaction.page(params[:page]).order(created_at: :desc)
+    @transactions = Transaction.order(created_at: :desc).limit(10)
   end 
 
 end

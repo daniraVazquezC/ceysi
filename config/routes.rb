@@ -27,7 +27,9 @@ Rails.application.routes.draw do
 
   resources :quantity_adjustments
 
-  resources :transactions, path: '/transacciones'
+  #resources :settings, path: '/aviso-existencias'
+  get '/aviso-existencias', to: 'settings#check_advice', as: 'new_setting'
+  patch '/aviso-existencias', to: 'settings#create_or_update', as: 'update_setting'
 
   
   #get '/ventas', to: 'transactions#sales', as: 'sales'

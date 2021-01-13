@@ -1,15 +1,16 @@
-<div class="row mt-3">
-  <div class="col-6">
-    <p><em class="red-text">*</em> Estos campos son requeridos</p>
+<div class="row mt-5">
+  <div class="col-12">
+    <p>Listado de correos electrónicos a los cuales se hará llegar el aviso de bajas existencias de productos marcados con una cantidad minima de existencias.</p>
+    <p>Los correos deberán estar separados por comas, en caso de que no exista al menos un correo definido el aviso no será enviado.</p>
   </div>
 </div>
 
 <div class="row mt-5"> 
   <%= form_for @settings, url:update_setting_path, html: {class: 'col-xl-8' } do |f| %>
     <div class="form-group row">
-      <%= f.label "Correos electrónicos:", class: "col-sm-4 col-form-label" %>
+      <%= f.label "Listado de correos electrónicos:", class: "col-sm-4 col-form-label" %>
       <div class="col-sm-8">
-        <%= f.text_field :value, class: "form-control" %>
+        <%= f.text_field :value, class: "form-control" , placeholder: "Correos separados por comas: prueba@gmail.com, contacto@gmail.com"%>
       </div>
     </div>
 

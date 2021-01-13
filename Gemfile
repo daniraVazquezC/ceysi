@@ -34,6 +34,9 @@ gem 'cocoon'
 # Comentario: Gema para realizar paginación
 gem 'kaminari'
 
+# Comentario: Gema para realizar busquedas
+gem 'ransack'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -98,3 +98,14 @@ a.edit-details, a.resend-invitation, a.adjust-quantity{
   background-color: #5ca783;
   border-color: #7d9064;
 }
+
+.search-form-icons { 
+  position: relative; 
+  input.form-control { text-indent: 2em; }
+  .fa-search{
+    position: absolute;
+    top: 0.7em;
+    left: 2em;
+    font-size: 15px;
+    color: grey; }
+}

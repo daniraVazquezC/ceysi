@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # Comentario: Esto indica que las "llamadas" a usuarios van a dirigirse al recurso de users , excepto la de new y edit 
   resources :users, path: '/usuarios' ,:except => [:new,:edit]
+  
   # Comentario: Esto indica la url y a que controlador#funcion hará referencia 
   get '/nuevo-usuario', to: 'users#new', as: 'new_user'
   get '/editar-usuario/:id', to: 'users#edit', as: 'edit_user'

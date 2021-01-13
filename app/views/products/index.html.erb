@@ -3,6 +3,23 @@
     <%= link_to "Agregar nuevo producto", new_product_path, class: "btn btn-primary"%>
   </div>
 </div>
+
+<div class="row mt-5">
+  <%= search_form_for @search, html: {class: 'col-xl-12' }  do |f| %>
+    <div class="form-group search-form-icons row">
+      <div class="col-md-9 mt-1">
+        <span class="fas fa-search"></span>
+        <%= f.text_field :name_or_product_code_cont, class: 'form-control', placeholder: 'Nombre o código de producto' %>
+      </div>
+      <div class="col-md-3 mt-1">
+        
+        <%= f.submit class: 'btn btn-primary'%>
+        <%= link_to "Limpiar", request.path, class: "btn btn-light" %>
+      </div>      
+    </div>
+  <% end %>
+</div>
+
 <div class="row mt-5">
   <table class="table table-striped">
     <thead>
@@ -37,3 +54,4 @@
 <div class="row pagination-sm justify-content-center mt-3" >
   <%= paginate @products %>
 </div>
+

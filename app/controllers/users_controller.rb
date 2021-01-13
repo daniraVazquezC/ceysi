@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # Comentario: Esta linea indica que antes de ejecutar cualquier metodo de este controlador se debe verificar que sea un usuario autenticado
   before_action :authenticate_user!
   before_action :restrict_access, except: [:edit_profile,:show_profile]
-  #, except: [:index]
+
   # Comentario: Indica el layout a utilizar para las vistas de este controlador
   layout 'general'
   # Comentario: Define una accion a realizar antes de ejecutar ciertos metodos

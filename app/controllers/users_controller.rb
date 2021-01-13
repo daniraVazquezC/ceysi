@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
   # Comentario: Este método "devuelve" a todos los usuarios registrados en la base de datos, en la tabla de users 
   def index
-    @users = User.page(params[:page]).order(created_at: :desc)
+    @search = User.ransack(params[:q])
+    @users = @search.result.order(created_at: :desc).page(params[:page])
   end
 
   def new

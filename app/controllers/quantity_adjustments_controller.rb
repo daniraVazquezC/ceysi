@@ -4,13 +4,10 @@ class QuantityAdjustmentsController < ApplicationController
   # Comentario: Indica el layout a utilizar para las vistas de este controlador
   layout 'general'
 
-  # Comentario: Este método "devuelve" a todas las transacciones registradas con el tipo de venta(sale) en la base de datos, en la tabla de transacciones 
-  def index
-  end
-
-  #Comentario: Este método devuelve la información de una venta especifica
+  #Comentario: Este método devuelve la información de ajuste de cantidad especifico
   def show
-
+    @quantity_adjustment = QuantityAdjustment.find(params[:id])
+    @transaction_details = @quantity_adjustment.transaction_details
   end
 
   def create

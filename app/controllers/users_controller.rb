@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # Comentario: Esta linea indica que antes de ejecutar cualquier metodo de este controlador se debe verificar que sea un usuario autenticado
   before_action :authenticate_user!
+  before_action :restrict_access
+  #, except: [:index]
   # Comentario: Indica el layout a utilizar para las vistas de este controlador
   layout 'general'
   # Comentario: Define una accion a realizar antes de ejecutar ciertos metodos
@@ -43,6 +45,15 @@ class UsersController < ApplicationController
     end
   end
 
+  # Comentario: Este metodo reenvia la invitacion al usuario para unirse al sistema
+  def resend_invitation
+    user = User.find(params[:id])
+    user.invite!
+    respond_to do |format|
+      format.js { flash.now[:notice] = "Invitación reenviada con exito a #{user.email}" }
+    end
+  end
+
   private
 
     # Comentario: Este metodo busca el usuario en la base de datos basandose en el id en params
@@ -55,4 +66,12 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :role, :active)
     end
 
+    def is_superuser_or_admin?
+      current_user.is_superuser? || current_user.is_admin?
+    end
+
+    # Comentario: Se restringe el acceso para que solo el superusuario y administradores puedan acceder a las funcionalidades
+    def restrict_access
+      redirect_to root_path if is_superuser_or_admin? == false
+    end
 end

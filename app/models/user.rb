@@ -26,5 +26,13 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && self.active
   end
+
+  def is_superuser?
+    role == "superusuario"
+  end
+
+  def is_admin?
+    role == "administrador"
+  end
   
 end

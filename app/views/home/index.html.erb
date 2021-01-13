@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <th># de transacción</th>
+        <th>Tipo de transacción</th>
         <th>Fecha de creación</th>
         <th></th>
       </tr>
@@ -16,9 +17,18 @@
       <% @transactions.each do |transaction| %>
         <tr>
           <td><%= transaction.id %></td>
+          <td>
+            <% if transaction.type == "OutboundOrder" %>
+              Orden de egreso
+            <% elsif transaction.type == "InboundOrder" %>
+              Orden de ingreso
+            <% else %>
+              Ajuste de cantidades
+            <% end %>
+          </td>
           <td><%= transaction.created_at.to_s(:standart_format) %></td> 
           <td>
-            <%= link_to transaction_path(transaction), class: "general-green" do %> 
+            <%= link_to transaction, class: "general-green" do %> 
               <i class="far fa-eye"></i> Ver detalles
             <% end %>
           </td>         

@@ -4,12 +4,13 @@ class InboundOrdersController < ApplicationController
   # Comentario: Indica el layout a utilizar para las vistas de este controlador
   layout 'general'
 
-  # Comentario: Este método "devuelve" a todas las transacciones registradas con el tipo de venta(sale) en la base de datos, en la tabla de transacciones 
+  # Comentario: Este método "devuelve" a todas las transacciones registradas con el tipo de orden de ingreso(inbound_order) en la base de datos, 
+  # en la tabla de transacciones 
   def index
     @inbound_orders = InboundOrder.page(params[:page]).order(created_at: :desc)
   end
 
-  #Comentario: Este método devuelve la información de una venta especifica
+  #Comentario: Este método devuelve la información de una orden de ingreso especifica
   def show
     @inbound_order = InboundOrder.find(params[:id])
     @transaction_details = @inbound_order.transaction_details
@@ -20,10 +21,8 @@ class InboundOrdersController < ApplicationController
     @products = Product.all
   end
 
-  # TODO : el sistema debe rechazar crear la orden si no lleva al menos un producto asociado
 
   def create
-
     @inbound_orders = InboundOrder.new(inbound_order_params.merge(user_id: current_user.id))
     if @inbound_orders.save
       flash[:notice] = "Orden de ingreso registrada con éxito"

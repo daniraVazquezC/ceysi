@@ -4,12 +4,12 @@ class OutboundOrdersController < ApplicationController
   # Comentario: Indica el layout a utilizar para las vistas de este controlador
   layout 'general'
 
-  # Comentario: Este método "devuelve" a todas las transacciones registradas con el tipo de venta(sale) en la base de datos, en la tabla de transacciones 
+  # Comentario: Este método "devuelve" a todas las transacciones registradas con el tipo de orden de egreso(outbound_order) en la base de datos, en la tabla de transacciones 
   def index
     @outbound_orders = OutboundOrder.page(params[:page]).order(created_at: :desc)
   end
 
-  #Comentario: Este método devuelve la información de una venta especifica
+  #Comentario: Este método devuelve la información de una orden de egreso especifica
   def show
     @outbound_order = OutboundOrder.find(params[:id])
     @transaction_details = @outbound_order.transaction_details

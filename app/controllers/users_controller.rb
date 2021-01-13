@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # Comentario: Esta linea indica que antes de ejecutar cualquier metodo de este controlador se debe verificar que sea un usuario autenticado
   before_action :authenticate_user!
-  before_action :restrict_access
+  before_action :restrict_access, except: [:edit_profile,:show_profile]
   #, except: [:index]
   # Comentario: Indica el layout a utilizar para las vistas de este controlador
   layout 'general'
@@ -51,6 +51,19 @@ class UsersController < ApplicationController
     user.invite!
     respond_to do |format|
       format.js { flash.now[:notice] = "Invitación reenviada con exito a #{user.email}" }
+    end
+  end
+
+  def show_profile
+  end
+
+  def edit_profile
+    if current_user.update(user_params)
+      flash[:notice] = "Tu información de usuario se ha actualizado con éxito"
+      redirect_to root_path
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect_to profile_path
     end
   end
 

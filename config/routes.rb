@@ -32,5 +32,8 @@ Rails.application.routes.draw do
   get '/aviso-existencias', to: 'settings#check_advice', as: 'new_setting'
   patch '/aviso-existencias', to: 'settings#create_or_update', as: 'update_setting'
 
+  get '/editar-perfil', to: 'users#show_profile', as: 'profile'
+  patch '/editar-perfil', to: 'users#edit_profile', as: 'edit_profile'
+
 
 end

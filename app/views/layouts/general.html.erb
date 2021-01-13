@@ -19,44 +19,47 @@
           <h3>Ceysi</h3>
         </div>
         <ul class="list-unstyled components">
-            <li class="active">
-              <a href="/"><i class="fas fa-home"></i> Inicio</a>
-            </li>
-            <li>
-              <%= link_to(products_path) do %>
-                <i class="fas fa-th-large"></i> Productos
+          <li class="active">
+            <a href="/"><i class="fas fa-home"></i> Inicio</a>
+          </li>
+          <li>
+            <%= link_to(products_path) do %>
+              <i class="fas fa-th-large"></i> Productos
+            <% end %>
+          </li>
+          <li>
+            <%= link_to(inbound_orders_path) do %>
+              <i class="fas fa-shopping-basket"></i> Ordenes de ingreso
+            <% end %>
+          </li>
+          <li>
+            <%= link_to(outbound_orders_path) do %>
+              <i class="fas fa-cash-register"></i></i> Ordenes de egreso
+            <% end %>
+          </li>
+          
+          <li>
+            <a href="#settingsubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fas fa-wrench"></i> Configuración</a>
+            <ul class="collapse list-unstyled" id="settingsubmenu">
+              <% if current_user.role != "usuario" %>
+                <li>
+                  <%= link_to users_path do %>
+                    <i class="fas fa-users"></i> Usuarios 
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_setting_path do %>
+                    <i class="fas fa-mail-bulk"></i> Aviso de existencias
+                  <% end %> 
+                </li>
               <% end %>
-            </li>
-            <li>
-              <%= link_to(inbound_orders_path) do %>
-                <i class="fas fa-shopping-basket"></i> Ordenes de ingreso
-              <% end %>
-            </li>
-            <li>
-              <%= link_to(outbound_orders_path) do %>
-                <i class="fas fa-cash-register"></i></i> Ordenes de egreso
-              <% end %>
-            </li>
-            <% if current_user.role != "usuario" %>
               <li>
-                <a href="#settingsubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fas fa-wrench"></i> Configuración</a>
-                <ul class="collapse list-unstyled" id="settingsubmenu">
-                  <li>
-                    <%= link_to users_path do %>
-                      <i class="fas fa-users"></i> Usuarios 
-                    <% end %>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fas fa-user"></i> Perfil</a>
-                  </li>
-                  <li>
-                    <%= link_to new_setting_path do %>
-                      <i class="fas fa-users"></i> Aviso de existencias
-                    <% end %> 
-                  </li>
-                <% end %>
-              </ul>
-            </li>
+                <%= link_to profile_path do %>
+                  <i class="fas fa-user"></i> Editar perfil
+                <% end %> 
+              </li>
+            </ul>
+          </li>
         </ul>
     </nav>
 

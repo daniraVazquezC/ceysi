@@ -8,6 +8,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import $ from 'jquery';
+global.$ = jQuery;
+
 // Comentario: Esto se agrega para que el sistema pueda utilizar bootstrap
 require("bootstrap")
 // Comentario: Esto se agrega para que los formularios anidados(nested_form) funcionen

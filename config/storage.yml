@@ -1,3 +1,5 @@
+# Comentario: aqui se agregaran los datos del servicio de subida de imagenes
+
 test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>

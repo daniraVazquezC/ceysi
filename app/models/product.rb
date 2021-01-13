@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  # Comentario: se indica que el producto tendra una imagen asociada
+  has_one_attached :product_image
+
   # Comentario: Esto indica una relacion con los detalles de transacciones en donde un "product" tiene o puede tener 
   # muchos "transaction_detail"
   has_many :transaction_details
@@ -8,6 +11,9 @@ class Product < ApplicationRecord
 
   before_create :set_stock
 
+  # Comentario: Validar imagen que se sube para el producto
+
+
   # Comentario: Este es el método que se llama en el before_save(antes de guardar)
   def set_minimum_stock
     minimum_stock = 0 if minimum_stock.nil?
@@ -16,5 +22,6 @@ class Product < ApplicationRecord
   def set_stock
     stock = initial_stock
   end
+
   
 end

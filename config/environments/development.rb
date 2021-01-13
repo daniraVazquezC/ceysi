@@ -28,6 +28,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
   
+  # Comentario: se indica en donde se guardaran los archivos , para este caso durante el desarrollo
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 

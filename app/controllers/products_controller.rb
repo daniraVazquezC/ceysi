@@ -60,6 +60,6 @@ class ProductsController < ApplicationController
 
     # Comentario: Se toman los parametros enviados y se realiza la depuración de cuales de ellos van a permitirse
     def product_params
-      params.require(:product).permit(:product_code, :name, :initial_stock, :price, :with_minimum_stock, :minimum_stock, :description)
+      params.require(:product).permit(:product_code, :name, :initial_stock, :price, :with_minimum_stock, :minimum_stock, :product_image, :description)
     end
 end

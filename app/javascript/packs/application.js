@@ -20,10 +20,12 @@ require("@nathanvda/cocoon")
 // Comentario: Esto permite utilizar los iconos instalados con 'yarn add @fortawesome/fontawesome-free' en la consola
 import "@fortawesome/fontawesome-free/css/all"
 
-// Esto agrega las funciones creadas para que el sidebar funcione 
+// Comentario: Esto agrega las funciones creadas para que el sidebar funcione 
 require("./custom/sidebar")
 require("./custom/general_script")
 
+// Comentario: se indica que se usara la carpeta de app/javascript/images/ para colocar las imagenes
+require.context('../images', true)
 
 import "../stylesheets/application";
 document.addEventListener("turbolinks:load", function() {

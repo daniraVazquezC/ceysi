@@ -30,16 +30,16 @@
         <div class="sidebar-header container-fluid pt-3">
           <div class="user-pic row">
             <div class="col-12 mx-auto text-center">
-              <img class="img-responsive px-1" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg">
+              <%= image_pack_tag "profile.png", class: "img-responsive px-1" %>
             </div>  
           </div>
           <div class="user-info row mt-2">
             <div class="dropdown col-12 text-center">
-              <a class="dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-toggle="dropdown">
+              <a class="dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown">
                 <%= current_user.name %>
               </a>
               
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-menu" aria-labelledby="userMenu">
                 <%= link_to profile_path, class: "dropdown-item" do %>
                   <i class="fas fa-user"></i> Editar perfil
                 <% end %> 
@@ -51,7 +51,7 @@
               </div>
               
             </div>
-            <div class="dropdown col-12 text-center">
+            <div class="dropdown col-12 text-center user-role">
               <p><%= current_user.role.capitalize %></p>
             </div>
             

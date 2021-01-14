@@ -1,0 +1,52 @@
+<div class="row mt-5">
+  <div class="col-md-12">
+    <h4><%= @product.name %></h4>
+  </div>
+</div> 
+
+<div class="row mt-2">
+  <div class="col-12">
+    <h5>Detalle de transacciones del producto</h5>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-6">
+    <%= link_to @product, class: "btn btn-primary" do%>
+      <i class="fas fa-arrow-left"></i> Regresar al producto
+    <% end %>
+  </div>
+</div>
+<div class="row mt-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th># de transacción</th>
+        <th>Tipo de transacción</th>
+        <th>Cantidad</th>
+        <th>Fecha de creación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transaction_details.each do |transaction_detail| %>
+        <tr>
+          <td><%= transaction_detail.id %></td>
+          <td>
+            <% if transaction_detail.order.type == "OutboundOrder" %>
+              Orden de egreso
+            <% elsif transaction_detail.order.type == "InboundOrder" %>
+              Orden de ingreso
+            <% else %>
+              Ajuste de cantidades
+            <% end %>
+          </td>
+          <td><%= transaction_detail.order.type == "OutboundOrder" ? -transaction_detail.quantity : transaction_detail.quantity %></td> 
+          <td><%= transaction_detail.created_at.to_s(:standart_format) %></td> 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>  
+</div>
+
+<div class="row pagination-sm justify-content-center mt-3" >
+  <%= paginate @transaction_details %>
+</div>

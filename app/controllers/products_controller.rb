@@ -52,6 +52,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  # Comentario: Mostrar las transacciones en las que se ha utilizado el producto
+  def show_transactions
+    @product = Product.find(params[:id])
+    @transaction_details = @product.transaction_details.order(created_at: :desc).page(params[:page])
+  end
+
   private
     # Comentario: Este metodo busca el producto en la base de datos basandose en el id en params
     def set_product

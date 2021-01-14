@@ -21,15 +21,15 @@ class InboundOrdersController < ApplicationController
     @products = Product.all
   end
 
-
+  #Comentario: Este método crea una orden de ingreso
   def create
-    @inbound_orders = InboundOrder.new(inbound_order_params.merge(user_id: current_user.id))
-    if @inbound_orders.save
+    @inbound_order = InboundOrder.new(inbound_order_params.merge(user_id: current_user.id))
+    if @inbound_order.save
       flash[:notice] = "Orden de ingreso registrada con éxito"
       redirect_to inbound_orders_path
     else
       @products = Product.all
-      flash[:errors] = @inbound_orders.errors.full_messages
+      flash[:errors] = @inbound_order.errors.full_messages
       render :new
     end
 

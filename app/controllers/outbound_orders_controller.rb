@@ -20,6 +20,7 @@ class OutboundOrdersController < ApplicationController
     @products = Product.all
   end
 
+  #Comentario: Este método crea una orden de egreso
   def create
     @outbound_order = OutboundOrder.new(outbound_order_params.merge(user_id: current_user.id))
     if @outbound_order.save

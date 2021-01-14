@@ -12,79 +12,122 @@
   </head>
 
   <body>
-  <div class="wrapper">
-    <nav id="sidebar">
-        <div class="sidebar-header">
-        <!-- Aqui va a ir el logo  -->
-          <h3>Ceysi</h3>
+
+  <div class="page-wrapper toggled">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav id="sidebar" class="sidebar-wrapper">
+      <div class="sidebar-content">
+
+        <div class="sidebar-brand">
+          <a href="/">Ceysi</a>
+          <div id="close-sidebar">
+            <i class="fas fa-times"></i>
+          </div>
         </div>
-        <ul class="list-unstyled components">
-          <li class="active">
-            <a href="/"><i class="fas fa-home"></i> Inicio</a>
-          </li>
-          <li>
-            <%= link_to(products_path) do %>
-              <i class="fas fa-th-large"></i> Productos
-            <% end %>
-          </li>
-          <li>
-            <%= link_to(inbound_orders_path) do %>
-              <i class="fas fa-shopping-basket"></i> Ordenes de ingreso
-            <% end %>
-          </li>
-          <li>
-            <%= link_to(outbound_orders_path) do %>
-              <i class="fas fa-cash-register"></i></i> Ordenes de egreso
-            <% end %>
-          </li>
-          
-          <li>
-            <a href="#settingsubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fas fa-wrench"></i> Configuración</a>
-            <ul class="collapse list-unstyled" id="settingsubmenu">
-              <% if current_user.role != "usuario" %>
-                <li>
-                  <%= link_to users_path do %>
-                    <i class="fas fa-users"></i> Usuarios 
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to new_setting_path do %>
-                    <i class="fas fa-mail-bulk"></i> Aviso de existencias
-                  <% end %> 
-                </li>
-              <% end %>
-              <li>
-                <%= link_to profile_path do %>
+
+        <div class="sidebar-header container-fluid pt-3">
+          <div class="user-pic row">
+            <div class="col-12 mx-auto text-center">
+              <img class="img-responsive px-1" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg">
+            </div>  
+          </div>
+          <div class="user-info row mt-2">
+            <div class="dropdown col-12 text-center">
+              <a class="dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-toggle="dropdown">
+                <%= current_user.name %>
+              </a>
+              
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <%= link_to profile_path, class: "dropdown-item" do %>
                   <i class="fas fa-user"></i> Editar perfil
                 <% end %> 
-              </li>
-            </ul>
-          </li>
-        </ul>
-    </nav>
+                <div class="dropdown-divider"></div>
 
-    <div id="content" class="toward-the-right">
-      <nav class="navbar sticky-top bg-white">
-        <div class="container-fluid">
-          <button type="button" id="sidebarCollapse" class="btn btn-menu">
-            <i class="fas fa-bars"></i>
-          </button>
-          <%= link_to('Cerrar sesión', destroy_user_session_path, method: :delete, class: "btn btn-logout my-2 my-sm-0") %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                  <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                <% end %> 
+              </div>
+              
+            </div>
+            <div class="dropdown col-12 text-center">
+              <p><%= current_user.role.capitalize %></p>
+            </div>
+            
+          </div>
         </div>
-      </nav>
-      <div class="container-fluid">
+        
+        <div class="sidebar-menu">
+          <ul class="list-unstyled components">
+            <li class="active">
+              <a href="/"><i class="fas fa-home"></i> Inicio</a>
+            </li>
+            <li>
+              <%= link_to(products_path) do %>
+                <i class="fas fa-th-large"></i> Productos
+              <% end %>
+            </li>
+            <li>
+              <%= link_to(inbound_orders_path) do %>
+                <i class="fas fa-shopping-basket"></i> Ordenes de ingreso
+              <% end %>
+            </li>
+            <li>
+              <%= link_to(outbound_orders_path) do %>
+                <i class="fas fa-cash-register"></i></i> Ordenes de egreso
+              <% end %>
+            </li>
+            
+            <li>
+              <a href="#settingsubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fas fa-wrench"></i> Configuración</a>
+              <ul class="collapse list-unstyled" id="settingsubmenu">
+                <% if current_user.role != "usuario" %>
+                  <li>
+                    <%= link_to users_path do %>
+                      <i class="fas fa-users"></i> Usuarios 
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to new_setting_path do %>
+                      <i class="fas fa-mail-bulk"></i> Aviso de existencias
+                    <% end %> 
+                  </li>
+                <% end %>
+                <li>
+                  
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </nav>
+    
+    <main class="page-content">
+      <div class="container-fluid mb-5">
         <div class="col-12" id="flash">
           <%# Comentario: Agregar mensajes flash %> 
           <%= render partial: "shared/notice_banner" %>            
         </div>  
                   
         <%= yield %>
+
       </div>
-      
-    </div>
 
+      <footer class="text-center mt-5">
+        <div class="mb-2">
+          
+        </div>
+        <div>
+          
+        </div>
+      </footer>
+    </main>
+    
   </div>
-
 
   </body>
 </html>

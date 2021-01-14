@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # invitable: modulo agregado con una gema extra que permite a los usuarios registrados "invitar" personas al sistema
   devise :invitable, :database_authenticatable, :recoverable, :rememberable
 
-  # Comentario: Realiza la validación de que el correo electronico este presente antes de crear el registro en la base de datos 
+  # Comentario: Realiza la validación de que el correo electrónico este presente antes de crear el registro en la base de datos 
   validates :email, presence: true
   # Comentario: Valida que el email sea unico en la base de datos, sin importar mayusculas y minusculas
   validates_uniqueness_of :email, case_sensitive: false

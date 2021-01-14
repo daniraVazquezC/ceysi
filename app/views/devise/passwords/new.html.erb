@@ -1,44 +1,25 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6 d-none d-md-flex bg-image"></div>
-    <div class="col-md-6">
-      <div class="login d-flex align-items-center py-5">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-10 col-xl-7 mx-auto">
-                <%# Agregar mensajes flash %> 
-                <% if notice %>
-                  <p class="alert alert-success"><%= notice %></p>
-                <% end %>
-                <% if alert %>
-                  <p class="alert alert-danger"><%= alert %></p>
-                <% end %>
-                
-                <%= image_tag("http://ceysi.com.mx/images/logo.jpg", class: "image rounded mx-auto d-block img-fluid") %>
-                <h3 class="brand">Recuperar de contraseña</h3>
-
-                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-                  <%= render "devise/shared/error_messages", resource: resource %>
-                  
-                  <div class="form-group mb-3">
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Correo electronico", class:"form-control rounded-pill border-0 shadow-sm px-4" %>
-                  </div>
-
-                  <div class="actions">
-                    <%= f.submit "Enviar instrucciones", class: "btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" %>
-                  </div>
-                
-                <% end %>
-
-
-                <%- if controller_name != 'sessions' %>
-                  <%= link_to "Iniciar sesión", new_session_path(resource_name) %><br />
-                <% end %>
-
-              </div>
-          </div>
-        </div>
-      </div>
+<%= render layout: 'devise/shared/template' do %>
+  <div class="row my-4">
+    <div class="col-12 text-center">
+      <h5>Recuperar contraseña</h5>
     </div>
   </div>
-</div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    
+    <div class="form-group mb-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Correo electrónico", class:"form-control rounded-pill border-0 shadow-sm px-4" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Enviar instrucciones", class: "btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" %>
+    </div>
+  
+  <% end %>
+
+  <%- if controller_name != 'sessions' %>
+    <div class="row mt-3 login-link">
+      <%= link_to "Iniciar sesión", new_session_path(resource_name) %>
+    </div>
+  <% end %>
+<% end %>

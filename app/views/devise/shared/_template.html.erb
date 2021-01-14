@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 d-none d-md-flex bg-image"></div>
+    <div class="col-md-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-7 mx-auto">
+              <%# Agregar mensajes flash %> 
+              <% if notice %>
+                <p class="alert alert-success"><%= notice %></p>
+              <% end %>
+              <% if alert %>
+                <p class="alert alert-danger"><%= alert %></p>
+              <% end %>
+              <div class="row my-4">
+                <div class="col-12">
+                  <%= image_pack_tag "logo.jpg", class: "image rounded mx-auto d-block img-responsive" %>
+                  <h5 class="brand">Sistema de inventario</h5>
+                </div>
+              </div>
+              
+
+              <%= yield %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

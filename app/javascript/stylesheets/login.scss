@@ -3,22 +3,27 @@
 */
 
 .login {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 /* Imagen de la izquierda en el inicio de sesion */
 .bg-image {
-    background-image: url('~images/energias-renovables.jpg');
-    background-size: cover;
-    background-position: center center;
+  background-image: url('~images/energias-renovables.jpg');
+  background-size: cover;
+  background-position: center center;
 }
 
 /* Logotipo de la empresa */ 
 .image {
-    background-image: url('~images/logo.jpg');
-    max-height: 100px;
+  max-height: 100px;
 }
 
 .brand {
-    text-align: center;
+  text-align: center;
+}
+
+.login-link{
+  color: #5ca783;
+  font-weight: 500;
+  text-decoration: underline;
 }

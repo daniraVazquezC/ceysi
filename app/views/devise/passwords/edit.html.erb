@@ -1,53 +1,31 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6 d-none d-md-flex bg-image"></div>
-    <div class="col-md-6">
-      <div class="login d-flex align-items-center py-5">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-10 col-xl-7 mx-auto">
-                <%# Agregar mensajes flash %> 
-                <% if notice %>
-                  <p class="alert alert-success"><%= notice %></p>
-                <% end %>
-                <% if alert %>
-                  <p class="alert alert-danger"><%= alert %></p>
-                <% end %>
-                
-                <%= image_tag("http://ceysi.com.mx/images/logo.jpg", class: "image rounded mx-auto d-block img-fluid") %>
-                <h3 class="brand">Cambiar contraseña</h3>
+<%= render layout: 'devise/shared/template' do %>
 
-                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-                  <%= render "devise/shared/error_messages", resource: resource %>
-                  <%= f.hidden_field :reset_password_token %>
-                                
-                  <div class="form-group mb-3">
-                  <% if @minimum_password_length %>
-                    <em>Al menos (<%= @minimum_password_length %> caracteres)</em><br />
-                  <% end %>
-                  <%= f.label :password, "Nueva contraseña" %><br />
-                    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Nueva contraseña", class:"form-control rounded-pill border-0 shadow-sm px-4 text-primary" %>
-                  </div>
-
-                  <div class="form-group mb-3">
-                  <%= f.label :password_confirmation, "Confirmar nueva contraseña" %><br />
-                    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmación de nueva contraseña", class:"form-control rounded-pill border-0 shadow-sm px-4 text-primary" %>
-                  </div>
-                
-                  <div class="actions">
-                    <%= f.submit "Cambiar contraseña", class: "btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" %>
-                  </div>
-
-                <% end %>
-            
-                <%- if controller_name != 'sessions' %>
-                  <%= link_to "Iniciar sesión", new_session_path(resource_name) %><br />
-                <% end %>
-
-              </div>
-          </div>
-        </div>
-      </div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+                  
+    <div class="form-group mb-3">
+    <% if @minimum_password_length %>
+      <em>Al menos (<%= @minimum_password_length %> caracteres)</em><br />
+    <% end %>
+    <%= f.label :password, "Nueva contraseña" %><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Nueva contraseña", class:"form-control rounded-pill border-0 shadow-sm px-4 text-primary" %>
     </div>
-  </div>
-</div>
+
+    <div class="form-group mb-3">
+    <%= f.label :password_confirmation, "Confirmar nueva contraseña" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmación de nueva contraseña", class:"form-control rounded-pill border-0 shadow-sm px-4 text-primary" %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Cambiar contraseña", class: "btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" %>
+    </div>
+
+  <% end %>
+
+  <%- if controller_name != 'sessions' %>
+    <div class="row mt-3 login-link">
+      <%= link_to "Iniciar sesión", new_session_path(resource_name) %><br />
+    </div>
+  <% end %>
+<% end %>

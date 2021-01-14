@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :inbound_orders,  path: '/ordenes-ingreso', type: 'InboundOrder', :except => [:new]
   get '/nueva-orden-ingreso', to: 'inbound_orders#new', as: 'new_inbound_order'
 
-  resources :quantity_adjustments
+  resources :quantity_adjustments, path: '/ajustes'
 
   #resources :settings, path: '/aviso-existencias'
   get '/aviso-existencias', to: 'settings#check_advice', as: 'new_setting'

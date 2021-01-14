@@ -16,7 +16,7 @@ class QuantityAdjustmentsController < ApplicationController
     if @quantity_adjustment.save
       flash[:notice] = "Ajuste registrado con éxito"
     else
-      flash[:errors] = @outbound_order.errors.full_messages
+      flash[:errors] = @quantity_adjustment.errors.full_messages
     end
     redirect_to @product
   end

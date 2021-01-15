@@ -1,7 +1,22 @@
-<div class="row mt-5">
+<div class="row">
+  <div class="col-12 ">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb px-0">
+        <li class="breadcrumb-item breadcrumb-item-green"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item breadcrumb-item-green" aria-current="page"><%= link_to "Producto", @transaction_detail.product %></li>
+        <li class="breadcrumb-item active" aria-current="page">Ajuste de cantidad</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-12 mb-4">
+    <h3>Ajuste de cantidad 
+  </div>
+</div>
+
+<div class="row">
   <div class="col-6">
-    <%= link_to products_path, class: "btn btn-primary" do%>
-      <i class="fas fa-arrow-left"></i> Regresar al producto
+    <%= link_to @transaction_detail.product, class: "btn btn-primary" do%>
+      <i class="fas fa-angle-left"></i> Ir al producto
     <% end %>
   </div>
 </div>
@@ -14,7 +29,7 @@
         <p>Fecha de creación: </p>
       </div>
       <div class="col-md-9">
-        <p><%= @quantity_adjustment.created_at %></p>
+        <p><%= @quantity_adjustment.created_at.to_s(:standart_format) %></p>
       </div>
     </div>
   </div>
@@ -42,21 +57,17 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Código de producto</th>
         <th scope="col">Nombre del producto</th>
         <th scope="col">Cantidad</th>
       </tr>
     </thead>
     <tbody>
-      <% @transaction_details.each_with_index do |transaction_detail, number| %>
         <tr>
-          <td><%= number + 1 %></td>
-          <td><%= transaction_detail.product.product_code %></td>
-          <td><%= transaction_detail.product.name %></td>    
-          <td><%= transaction_detail.quantity %></td>  
+          <td><%= @transaction_detail.product.product_code %></td>
+          <td><%= @transaction_detail.product.name %></td>    
+          <td><%= @transaction_detail.quantity %></td>  
         </tr>
-      <% end %>
     </tbody>
   </table>
 </div>

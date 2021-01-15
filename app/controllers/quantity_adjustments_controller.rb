@@ -7,7 +7,7 @@ class QuantityAdjustmentsController < ApplicationController
   #Comentario: Este método devuelve la información de ajuste de cantidad especifico
   def show
     @quantity_adjustment = QuantityAdjustment.find(params[:id])
-    @transaction_details = @quantity_adjustment.transaction_details
+    @transaction_detail = @quantity_adjustment.transaction_details.first
   end
 
   def create

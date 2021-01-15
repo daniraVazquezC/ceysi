@@ -1,21 +1,24 @@
 <div class="row mt-5">
-  <div class="col-12">
-    <h2>Editar información del producto</h2>
+  <div class="col-12 ">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb px-0">
+        <li class="breadcrumb-item breadcrumb-item-green"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item breadcrumb-item-green" aria-current="page"><%= link_to "Productos", products_path %></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-12 mb-4">
+    <h3>Editar información del producto</h3>
   </div>
 </div>
 
-<div class="row mt-3">
-  <div class="col-6">
-    <%= link_to products_path, class: "btn btn-primary" do%>
-      <i class="fas fa-arrow-left"></i> Regresar al listado de productos
-    <% end %>
-  </div>
-  <div class="col-6">
+<div class="row">
+  <div class="col-12 text-right">
     <p><em class="red-text">*</em> Estos campos son requeridos</p>
   </div>
 </div>
 
-<div class="row mt-5">
+<div class="row mt-3">
   <%= form_for @product, html: {class: 'col-xl-12' } do |f| %>
 
     <div class="form-group row">

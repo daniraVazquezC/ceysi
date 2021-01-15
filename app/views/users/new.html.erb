@@ -1,50 +1,55 @@
-<div class="row mt-5">
-  <div class="col-12">
-    <h2>Crear nuevo usuario del sistema</h2>
+<div class="row">
+  <div class="col-12 ">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb px-0">
+        <li class="breadcrumb-item breadcrumb-item-green"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item breadcrumb-item-green" aria-current="page"><%= link_to "Usuarios", users_path %></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-12 mb-4">
+    <h3>Crear nuevo usuario del sistema</h3>
   </div>
 </div>
 
-<div class="row mt-3">
-  <div class="col-6">
-    <%= link_to users_path, class: "btn btn-primary" do%>
-      <i class="fas fa-arrow-left"></i> Regresar al listado de usuarios
-    <% end %>
-  </div>
-  <div class="col-6">
+<div class="row">
+  <div class="col-12 text-right">
     <p><em class="red-text">*</em> Estos campos son requeridos</p>
   </div>
 </div>
 
 <div class="row mt-5"> 
-  <%= form_for @user, html: {class: 'col-xl-8' } do |f| %>
+  <%= form_for @user, html: {class: 'col-xl-12' } do |f| %>
     <div class="form-group row">
-      <%= f.label :name, "Nombre", class: "col-sm-2 col-form-label" %>
+      <%= f.label :name, "Nombre:", class: "col-sm-2 col-form-label" %>
       <div class="col-sm-10">
         <%= f.text_field :name, class: "form-control" %>
       </div>
     </div>
 
     <div class="form-group required row">
-      <%= f.label :email, "Correo electrónico", class: "col-sm-2 col-form-label"%>
+      <%= f.label :email, "Correo electrónico:", class: "col-sm-2 col-form-label"%>
       <div class="col-sm-10">
-        <%= f.email_field :email, class: "form-control", required: true%>
+        <%= f.email_field :email, class: "form-control", required: true, placeholder:"prueba@ceysi.com" %>
       </div>
     </div>
 
     <div class="form-group row">
-      <%= f.label :role, "Tipo de usuario", class: "col-sm-2 col-form-label" %>
+      <%= f.label :role, "Tipo de usuario:", class: "col-sm-2 col-form-label" %>
       <div class="col-sm-10">
         <%# Comentario: se colocan en el select los roles que puede tener un usuario %> 
         <%= f.select :role, options_for_select([["Usuario", "usuario"],["Administrador", "administrador"]]),{}, {class: "form-control"} %>
       </div>
     </div>  
 
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <%= submit_tag "Enviar invitación", class: "btn btn-primary"  %>
+    <div class="form-group row mt-5">
+      <div class="offset-md-6 col-md-6 text-right">
+        <%= submit_tag "Crear usuario", class: "btn btn-primary mr-2"%>
+        <%= link_to "Cancelar", users_path , class:"btn btn-secondary" %>
       </div>
     </div>
-    <% end %>
+
+  <% end %>
 </div>
 
 

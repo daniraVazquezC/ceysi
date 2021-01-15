@@ -59,8 +59,9 @@
           <%# Comentario: Si el usuario tiene rol de superusuario no puede ser editado en la vista %> 
           <td>
             <% if user.role != "superusuario"%>
-              <i class="fas fa-edit general-green"></i>
-              <%= link_to "Editar", edit_user_path(user), class:"edit-details" %>
+              <%= link_to edit_user_path(user), class:"edit-details" do %>
+                <i class="fas fa-edit"></i> Editar
+              <% end %>
             <% end %>
           </td>
           <td>

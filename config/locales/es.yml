@@ -1,5 +1,10 @@
 es:
+  password_confirmation: "Confirmación de contraseña"
   activerecord:
+    models:
+      user: "Usuario"
+    attributes:
+      password_confirmation: "Confirmación de contraseña"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'

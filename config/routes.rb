@@ -42,5 +42,5 @@ Rails.application.routes.draw do
   patch '/aviso-existencias', to: 'settings#create_or_update', as: 'update_setting'
 
 
-
+  get '*path' => redirect('/')
 end

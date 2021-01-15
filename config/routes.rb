@@ -41,6 +41,6 @@ Rails.application.routes.draw do
   get '/aviso-existencias', to: 'settings#check_advice', as: 'new_setting'
   patch '/aviso-existencias', to: 'settings#create_or_update', as: 'update_setting'
 
-
-  get '*path' => redirect('/')
+  # Comentario: Esto indica que en el caso de que la ruta no se encuentre se redirija al inicio
+  #get '*path' => redirect('/')
 end

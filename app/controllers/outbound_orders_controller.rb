@@ -27,11 +27,11 @@ class OutboundOrdersController < ApplicationController
       flash[:notice] = "Orden de egreso registrada con éxito"
       redirect_to outbound_orders_path
     else
+      @outbound_order.errors.messages.transform_keys!{ |key| I18n.t(key) if key == :transaction_details }
       @products = Product.all
       flash[:errors] = @outbound_order.errors.full_messages
       render :new
     end
-
   end
 
   private

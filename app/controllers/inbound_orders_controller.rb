@@ -28,6 +28,7 @@ class InboundOrdersController < ApplicationController
       flash[:notice] = "Orden de ingreso registrada con éxito"
       redirect_to inbound_orders_path
     else
+      @inbound_order.errors.messages.transform_keys!{ |key| I18n.t(key) if key == :transaction_details }
       @products = Product.all
       flash[:errors] = @inbound_order.errors.full_messages
       render :new

@@ -34,6 +34,7 @@
         <th>Tipo de transacción</th>
         <th>Cantidad</th>
         <th>Fecha de creación</th>
+        <th>Fecha de creación</th>
       </tr>
     </thead>
     <tbody>
@@ -51,6 +52,11 @@
           </td>
           <td><%= transaction_detail.order.type == "OutboundOrder" ? -transaction_detail.quantity : transaction_detail.quantity %></td> 
           <td><%= transaction_detail.created_at.to_s(:standart_format) %></td> 
+          <td>
+            <%= link_to transaction_detail.order, class: "general-green" do %> 
+              <i class="far fa-eye"></i> Ver orden o ajuste
+            <% end %>
+          </td> 
         </tr>
       <% end %>
     </tbody>

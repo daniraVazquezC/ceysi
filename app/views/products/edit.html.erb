@@ -84,17 +84,18 @@
     </div>
   <% end %>
 </div>
-
-<div class="row">
-  <fieldset class="col-6 scheduler-border">
-      <legend class="scheduler-border">Adicionales</legend>
-      <div class="col-12">
-        <button type="button" class="mt-3 btn btn-danger px-5" data-toggle="modal" data-target="#deleteProduct">
-          <i class="fas fa-trash-alt"></i> Eliminar producto
-        </button>
-      </div>
-  </fieldset>
-</div>
+<% if @product.transaction_details.count == 0 %>
+  <div class="row">
+    <fieldset class="col-6 scheduler-border">
+        <legend class="scheduler-border">Adicionales</legend>
+        <div class="col-12">
+          <button type="button" class="mt-3 btn btn-danger px-5" data-toggle="modal" data-target="#deleteProduct">
+            <i class="fas fa-trash-alt"></i> Eliminar producto
+          </button>
+        </div>
+    </fieldset>
+  </div>
+<% end %>
 
 <%# Comentario: Mensaje de confirmación %>
 

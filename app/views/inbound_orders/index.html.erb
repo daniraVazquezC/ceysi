@@ -13,7 +13,9 @@
   </div>
 
   <div class="col-12">
-    <%= link_to "Registrar orden de ingreso", new_inbound_order_path, class: "btn btn-primary"%>
+    <%= link_to new_inbound_order_path, class: "btn btn-primary" do%>
+      <i class="fas fa-plus"></i> Registrar orden de ingreso
+    <% end %>
   </div>
 </div>
 <div class="row mt-5">

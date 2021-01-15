@@ -1,20 +1,33 @@
-<div class="row mt-5">
+<div class="row">
+  <div class="col-12 ">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb px-0">
+        <li class="breadcrumb-item breadcrumb-item-green"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item breadcrumb-item-green" aria-current="page"><%= link_to "Ordenes de egreso", outbound_orders_path %></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-12 mb-4">
+    <h3>Orden de egreso # <%= @outbound_order.id %></h3>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-6">
     <%= link_to outbound_orders_path, class: "btn btn-primary" do%>
-      <i class="fas fa-arrow-left"></i> Regresar
+      <i class="fas fa-angle-left"></i> Regresar al listado de ordenes
     <% end %>
   </div>
 </div>
 
 <div class="row mt-5 mb-5">
-
   <div class="col-xl-10">
     <div class="row">
       <div class="col-md-3">
         <p>Fecha de creación: </p>
       </div>
       <div class="col-md-9">
-        <p><%= @outbound_order.created_at %></p>
+        <p><%= @outbound_order.created_at.to_s(:standart_format) %></p>
       </div>
     </div>
   </div>
@@ -34,7 +47,7 @@
 
 <div class="row mt-5">
   <div class="col-12 text-center">
-    <h4>Detalles de la orden de egreso</h4>
+    <h4>Detalles de la orden</h4>
   </div>
 </div>
 

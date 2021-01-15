@@ -70,10 +70,15 @@ a.edit-details, a.resend-invitation{
   border-color: #158F54;
 }
 
-.btn-info {
+.btn-outline-add {
+  color: #5ca783;
+  border-color: #5ca783;
+}
+
+.btn-outline-add:hover,.btn-outline-add:focus {
   color: #fff;
-  background-color: #63ab88;
-  border-color: #17a2b8;
+  background-color: #5ca783;
+  border-color: #5ca783;
 }
 
 .red-text{

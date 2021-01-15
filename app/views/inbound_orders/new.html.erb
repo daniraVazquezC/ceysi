@@ -1,14 +1,14 @@
-<div class="row mt-5">
-  <div class="col-12">
-    <h2>Crear nueva orden de ingreso</h2>
+<div class="row">
+  <div class="col-12 ">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb px-0">
+        <li class="breadcrumb-item breadcrumb-item-green"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item breadcrumb-item-green" aria-current="page"><%= link_to "Ordenes de ingreso", inbound_orders_path %></li>
+      </ol>
+    </nav>
   </div>
-</div>
-
-<div class="row mt-3">
-  <div class="col-6">
-    <%= link_to inbound_orders_path, class: "btn btn-primary" do%>
-      <i class="fas fa-arrow-left"></i> Regresar
-    <% end %>
+  <div class="col-12 mb-4">
+    <h3>Crear nueva orden de ingreso</h3>
   </div>
 </div>
 
@@ -24,7 +24,9 @@
     
     <%# Comentario: Con este boton se agrega un nuevo producto, el link_to_add_association es propio de la gema Cocoon para formularios anidados %>
     <div class="form-group row">
-      <%= link_to_add_association 'Agregar producto', f, :transaction_details , class: "btn btn-primary" %>
+      <%= link_to_add_association  f, :transaction_details , class: "btn btn-outline-add" do %>
+        <i class="fas fa-plus"></i> Agregar producto
+      <% end %>
     </div>
 
     <%= f.fields_for :transaction_details do |transaction_detail| %>

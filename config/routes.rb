@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   # Comentario: Esto indica el recurso que va a utilizar la gema devise
-  devise_for :users
-
+  devise_for :users, skip: [:sessions]
+  as :user do
+    get 'ingresar', to: 'devise/sessions#new', as: :new_user_session
+    post 'ingresar', to: 'devise/sessions#create', as: :user_session
+    match 'signout', to: 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via
+  end
+                          
   # Comentario: Esto indica la pagina por defecto
   root to: 'home#index'
 

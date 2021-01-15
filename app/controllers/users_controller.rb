@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.invite!
     respond_to do |format|
-      format.js { flash.now[:notice] = "Invitación reenviada con exito a #{user.email}" }
+      format.js { flash.now[:notice] = "Invitación reenviada con éxito a #{user.email}" }
     end
   end
 

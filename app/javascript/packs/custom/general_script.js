@@ -35,7 +35,11 @@ $(document).on('turbolinks:load', function () {
     $('.select-product').selectpicker();
   });
 
+  // Comentario: Esto es para desplegar el area de ajuste de cantidades
   $('.quantity-adjustment').on('click', function(){
     $('#quantity-adjustment').show();
   });
+
+
+
 });

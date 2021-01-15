@@ -1,7 +1,18 @@
-<div class="row mt-5">
+<div class="row">
+  <div class="col-12 ">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb px-0">
+        <li class="breadcrumb-item breadcrumb-item-green"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item breadcrumb-item-green" aria-current="page"><%= link_to "Productos", products_path %></li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-6">
     <%= link_to products_path, class: "btn btn-primary" do%>
-      <i class="fas fa-arrow-left"></i> Regresar al listado de productos
+      <i class="fas fa-angle-left"></i> Regresar al listado de productos
     <% end %>
   </div>
 </div>
@@ -94,7 +105,7 @@
 
       <%= link_to 'Ver transacciones del producto', show_transactions_path(@product), class:"btn btn-primary px-5 mt-1"%> 
 
-      <button class="btn btn-info quantity-adjustment mt-1">Realizar ajuste de cantidades</button>
+      <button class="btn btn-primary quantity-adjustment mt-1">Realizar ajuste de cantidades</button>
     </div>
     <% if @product.transaction_details.count == 0 %>
       <div class="col-12 mt-3 ">

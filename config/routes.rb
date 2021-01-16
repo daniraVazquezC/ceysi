@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/user/:id/resend_invitation' , to: 'users#resend_invitation', as: 'resend_invitation'
   get '/editar-perfil', to: 'users#show_profile', as: 'profile'
   patch '/editar-perfil', to: 'users#edit_profile', as: 'edit_profile'
+  patch '/editar-password', to: 'users#change_password', as: 'change_password'
+
 
   # Comentario: Esto indica que las "llamadas" a productos van a dirigirse al recurso de products 
   resources :products, path: '/productos', :except => [:new,:edit]

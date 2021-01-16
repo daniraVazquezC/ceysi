@@ -62,7 +62,19 @@ class UsersController < ApplicationController
       flash[:notice] = "Tu información de usuario se ha actualizado con éxito"
       redirect_to root_path
     else
-      flash[:errors] = @user.errors.full_messages
+      flash[:errors] = current_user.errors.full_messages
+      redirect_to profile_path
+    end
+  end
+
+  def change_password
+    if current_user.update_with_password(user_params)
+      flash[:notice] = "Tu contraseña se ha actualizado con éxito"
+      bypass_sign_in current_user
+      redirect_to root_path
+    else
+      current_user.errors.messages.transform_keys!{ |key| I18n.t(key) }
+      flash[:errors] = current_user.errors.full_messages
       redirect_to profile_path
     end
   end
@@ -76,7 +88,7 @@ class UsersController < ApplicationController
     
     # Comentario: Se toman los parametros enviados y se realiza la depuración de cuales de ellos van a permitirse
     def user_params
-      params.require(:user).permit(:name, :email, :role, :active)
+      params.require(:user).permit(:name, :email, :role, :active, :password, :password_confirmation,:current_password)
     end
 
     def is_superuser_or_admin?

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :recoverable, :rememberable
 
   validates_presence_of :password_confirmation, if: -> { password.present? }
+  validates_presence_of :password, if: -> { password_confirmation.present? }
   validates_confirmation_of :password, if: -> { password.present? } 
 
   # Comentario: Realiza la validación de que el correo electrónico este presente antes de crear el registro en la base de datos 

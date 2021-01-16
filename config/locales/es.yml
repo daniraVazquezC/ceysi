@@ -2,6 +2,8 @@ es:
   transaction_details: "detalles de la orden"
   reset_password_token: "El enlace para restablecer contraseña"
   password_confirmation: "Confirmación de contraseña"
+  password: "Contraseña"
+  current_password: "Contraseña actual"
   activerecord:
     models:
       user: "Usuario"

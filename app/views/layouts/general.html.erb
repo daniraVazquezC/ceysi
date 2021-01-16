@@ -70,12 +70,12 @@
             </li>
             <li>
               <%= link_to(inbound_orders_path) do %>
-                <i class="fas fa-shopping-basket"></i> Ordenes de ingreso
+                <i class="fas fa-shopping-basket"></i> Órdenes de ingreso
               <% end %>
             </li>
             <li>
               <%= link_to(outbound_orders_path) do %>
-                <i class="fas fa-cash-register"></i></i> Ordenes de egreso
+                <i class="fas fa-cash-register"></i></i> Órdenes de egreso
               <% end %>
             </li>
             <% if current_user.role != "usuario" %>

@@ -29,11 +29,11 @@ Rails.application.routes.draw do
   get '/producto/:id/transacciones', to: 'products#show_transactions', as: 'show_transactions'
 
 
-  # Comentario: Esto indica que las "llamadas" a ordenes-egreso van a dirigirse al recurso de outbound_orders
+  # Comentario: Esto indica que las "llamadas" a órdenes-egreso van a dirigirse al recurso de outbound_orders
   resources :outbound_orders,  path: '/ordenes-egreso', type: 'OutboundOrder', :except => [:new]
   get '/nueva-orden-egreso', to: 'outbound_orders#new', as: 'new_outbound_order'
 
-  # Comentario: Esto indica que las "llamadas" a ordenes-ingreso van a dirigirse al recurso de inbound_orders
+  # Comentario: Esto indica que las "llamadas" a órdenes-ingreso van a dirigirse al recurso de inbound_orders
   resources :inbound_orders,  path: '/ordenes-ingreso', type: 'InboundOrder', :except => [:new]
   get '/nueva-orden-ingreso', to: 'inbound_orders#new', as: 'new_inbound_order'
 

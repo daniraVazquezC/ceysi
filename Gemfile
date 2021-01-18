@@ -40,6 +40,9 @@ gem 'ransack'
 # Comentario: se usará postgresql como base de datos 
 gem 'pg'
 
+# Comentario: se usa esta gema para ocultar información de configuración sensible
+gem 'dotenv-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

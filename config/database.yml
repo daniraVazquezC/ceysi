@@ -87,6 +87,6 @@ test:
 #
 production:
   <<: *default
-  database: ceysi_production
-  username: ceysi_root
-  password: <%= ENV['CEYSI_ROOT_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  #username: ceysi_root
+  #password: <%= ENV['CEYSI_ROOT_DATABASE_PASSWORD'] %>

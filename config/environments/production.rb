@@ -113,12 +113,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   #host = 'ceysi.herokuapp.com' #replace with your own url
   #config.action_mailer.default_url_options = { host: host }
-
+  config.action_mailer.default_url_options = { host: 'ceysi.herokuapp.com' }
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :host               => 'ceysi.herokuapp.com',
+    :host                 => 'ceysi.herokuapp.com',
     :user_name            => ENV['SMTP_USER_NAME'],
     :password             => ENV['SMTP_PASSWORD'],
     :authentication       => "plain",

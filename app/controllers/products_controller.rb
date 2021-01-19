@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   def index
     @search = Product.ransack(params[:q])
     @products = @search.result.order(created_at: :desc).page(params[:page])
+    
   end
 
   def show
@@ -23,7 +24,7 @@ class ProductsController < ApplicationController
   # Comentario: este metodo crea el producto en la base de datos
   def create
     # Comentario: Se iguala el campo stock al de initial_stock
-    @product = Product.new(product_params)
+    @product = Product.new(product_params.merge(stock: product_params[:initial_stock]))
     if @product.save
       flash[:notice] = "Producto creado con éxito"
       redirect_to @product

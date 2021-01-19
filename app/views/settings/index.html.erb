@@ -20,7 +20,7 @@
 </div>
 
 <div class="row mt-5"> 
-  <%= form_for @settings, url:update_setting_path, html: {class: 'col-xl-12' } do |f| %>
+  <%= form_for @settings, html: {class: 'col-xl-12' } do |f| %>
     <div class="form-group row">
       <%= f.label "Listado de correos electrónicos:", class: "col-sm-3 col-form-label" %>
       <div class="col-sm-9">
@@ -31,7 +31,7 @@
     <div class="form-group row mt-5">
       <div class="offset-md-6 col-md-6 text-right">
         <%= submit_tag "Guardar configuración", class: "btn btn-primary mr-2"%>
-        <%= link_to "Cancelar", users_path , class:"btn btn-secondary" %>
+        <%= link_to "Cancelar", root_path , class:"btn btn-secondary" %>
       </div>
     </div>
   <% end %>

@@ -39,9 +39,8 @@ Rails.application.routes.draw do
 
   resources :quantity_adjustments, path: '/ajustes'
 
-  #resources :settings, path: '/aviso-existencias'
-  get '/aviso-existencias', to: 'settings#check_advice', as: 'new_setting'
-  patch '/aviso-existencias', to: 'settings#create_or_update', as: 'update_setting'
+  resources :settings, path: '/aviso-existencias'
+
 
   # Comentario: Esto indica que en el caso de que la ruta no se encuentre se redirija al inicio
   #get '*path' => redirect('/')

@@ -4,14 +4,14 @@ class SettingsController < ApplicationController
   # Comentario: Indica el layout a utilizar para las vistas de este controlador
   layout 'general'
 
-  def check_advice
+  def index
     @settings = set_stock_notice_emails
     if @settings.nil?
       @settings = Setting.new()
     end
   end
 
-  def create_or_update
+  def update
     setting = set_stock_notice_emails
     if setting.nil?
       @settings = Setting.create(key: "stock_notice_emails", value: settings_params[:value])

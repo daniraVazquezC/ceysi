@@ -12,8 +12,9 @@ class QuantityAdjustmentsController < ApplicationController
 
   def create
     @quantity_adjustment = QuantityAdjustment.new(quantity_adjustment_params.merge(user_id: current_user.id))
-    @product = Product.find(5)
+    @product = Product.find(@quantity_adjustment.transaction_details.first.product.id)
     if @quantity_adjustment.save
+      #StockMailer.send_notification(@quantity_adjustment)
       flash[:notice] = "Ajuste registrado con éxito"
     else
       flash[:errors] = @quantity_adjustment.errors.full_messages

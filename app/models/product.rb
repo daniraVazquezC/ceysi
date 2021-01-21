@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  scope :low_stock, -> { where(["with_minimum_stock = ? and stock < minimum_stock",true]) }
+
   # Comentario: se indica que el producto tendra una imagen asociada
   has_one_attached :product_image
 

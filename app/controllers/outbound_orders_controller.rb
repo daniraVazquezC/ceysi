@@ -24,6 +24,7 @@ class OutboundOrdersController < ApplicationController
   def create
     @outbound_order = OutboundOrder.new(outbound_order_params.merge(user_id: current_user.id))
     if @outbound_order.save
+      StockMailer.send_notification(@outbound_order)
       flash[:notice] = "Orden de egreso registrada con éxito"
       redirect_to outbound_orders_path
     else

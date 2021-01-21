@@ -14,4 +14,7 @@ class Product < ApplicationRecord
     minimum_stock = 0 if minimum_stock.nil?
   end
   
+  def restock?
+    with_minimum_stock && stock < minimum_stock ? true : false
+  end
 end

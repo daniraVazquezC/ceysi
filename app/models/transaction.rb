@@ -13,15 +13,6 @@ class Transaction < ApplicationRecord
   #Comentario: Esto se agrega para poder definir el tipo de ajuste de cantidades
   attr_accessor :adjustment_type
 
-  # TODO : Pendiente de revisar 
-   # Comentario: Si el campo de user_id va con un valor nulo (nil) se le asigna el valor del id del usuario actual
-  #before_save :set_user_id
-
-  # Comentario: Este es el método que se llama en el before_save(antes de guardar)
-  #def set_user_id
-  #  user_id = current_user.id if user_id.nil?
- # end  
-
 end
 
 

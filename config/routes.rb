@@ -41,8 +41,8 @@ Rails.application.routes.draw do
 
   resources :settings, path: '/aviso-existencias'
 
-  get '/weekly_notification', to: 'weekly_notification#send_notification'
-  
+  get '/weekly-notification', to: 'weekly_notification#send_notification'
+
   # Comentario: Esto indica que en el caso de que la ruta no se encuentre se redirija al inicio
   #get '*path' => redirect('/')
 end

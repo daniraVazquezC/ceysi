@@ -11,6 +11,17 @@ class SettingsController < ApplicationController
     end
   end
 
+  def create
+    @settings = Setting.new(key: "stock_notice_emails", value: settings_params[:value])
+    if @settings.save
+      flash[:notice] = "Configuración creada con éxito"
+      redirect_to root_path
+    else
+      flash[:errors] = @settings.errors.full_messages
+      render :index
+    end
+  end
+
   def update
     setting = set_stock_notice_emails
     if setting.nil?

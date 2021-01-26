@@ -26,16 +26,17 @@ $(document).on('turbolinks:load', function () {
     }    
   });
 
-  // Comentario: Esto es para indicar que en el formulario anidado se va a utilizar un selector especial para las busquedas (bootstrap-select)
+  // Comentario: Esto es para indicar que en el formulario anidado se va a utilizar un selector especial para las busquedas (bootstrap-select) en las ordenes de egreso
   $('#new_outbound_order').on('cocoon:after-insert', function() {
     $('.select-product').selectpicker();
   });
 
+  // Comentario: Esto es para indicar que en el formulario anidado se va a utilizar un selector especial para las busquedas (bootstrap-select) en las ordenes de ingreso
   $('#new_inbound_order').on('cocoon:after-insert', function() {
     $('.select-product').selectpicker();
   });
 
-  // Comentario: Esto es para desplegar el area de ajuste de cantidades
+  // Comentario: Esto es para desplegar el area de ajuste de cantidades en el producto
   $('.quantity-adjustment').on('click', function(){
     $('#quantity-adjustment').show();
   });

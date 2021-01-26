@@ -1,5 +1,5 @@
 class StockMailer < ApplicationMailer
-  # Comentario: Solo se envia el correo si de los productos de la orden,
+  # Comentario: Solo se envia el correo si de los productos de la orden, en caso de que sea el semanal va a revisar todos los productos,
   # al menos uno tiene una cantidad minima de existencias definida y a la vez el stock es menor a dicha cantidad
 
   # Comentario: Esto envia el aviso cada vez que se hace una orden de egreso o un ajuste de cantidad
@@ -21,11 +21,13 @@ class StockMailer < ApplicationMailer
     end
   end
 
+  # Comentario: Esto envia el aviso por correo
   def low_stock_notification(email, products)
     @products = products
     mail(to: email, subject: "Notificación de bajas existencias" )
   end
 
+  # Comentario: Esto envia el aviso cada semana
   def low_stock_notification_weekly(email, products)
     @products = products
     mail(to: email, subject: "Notificación semanal de bajas existencias" )

@@ -11,8 +11,8 @@ local:
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 amazon:
   service: S3
-  access_key_id: "AKIAJRBZ4P6CQ2FADO7A"
-  secret_access_key: "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"
+  access_key_id: "AccessKeyID"
+  secret_access_key: "SecretAccessKey"
   region: us-east-2
   bucket: ceysi-bucket
 
